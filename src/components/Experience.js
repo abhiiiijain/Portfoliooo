@@ -24,12 +24,16 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
             @{company}
           </a>
         </h3>
-        <span className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm
+        <span
+          className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm
         ">
           {time} | {address}
         </span>
-        <p className="font-medium w-full md:text-sm
-        ">{work}</p>
+        <p
+          className="font-medium w-full md:text-sm
+        ">
+          {work}
+        </p>
       </motion.div>
     </li>
   );
@@ -43,10 +47,11 @@ const Experience = () => {
   });
   return (
     <div className="my-64">
-      <h2 className="font-bold text-8xl mb-32 w-full text-center
+      <h2
+        className="font-bold text-8xl mb-32 w-full text-center
       md:text-6xl xs:text-4xl md:mb-16
       ">
-        Experience
+        Trainings and Internships
       </h2>
 
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
@@ -54,31 +59,32 @@ const Experience = () => {
           style={{ scaleY: scrollYProgress }}
           className="absolute left-9 top-0 w-[4px] h-full bg-dark origin-top
           dark:bg-light md:w-[2px] md:left-[30px] xs:left-[20px]
-          "/>
+          "
+        />
         <ul className=" w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            position="Software Engineer"
-            company="Google"
+            position="MERN Stack Intern"
+            company="A2it Solution Pvt. Ltd."
             companyLink="www.google.com"
-            time="2022-Present"
-            address="Mountain View, CA"
-            work="Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization."
+            time="Jan 2023 - Jun 2023"
+            address="Mohali, INDIA"
+            work=""
           />
           <Details
             position="Software Engineer"
-            company="Google"
+            company="Connectings Points Tech"
             companyLink="www.google.com"
-            time="2022-Present"
-            address="Mountain View, CA"
-            work="Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization."
+            time="Jun 2022 - Sep 2022"
+            address="Mohali, INDIA"
+            work=""
           />
           <Details
-            position="Software Engineer"
-            company="Google"
+            position="ReactJs Training"
+            company="ThinkNext Technologies Pvt. Ltd. "
             companyLink="www.google.com"
             time="2022-Present"
             address="Mountain View, CA"
-            work="Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization."
+            work=""
           />
         </ul>
       </div>

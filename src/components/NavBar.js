@@ -8,6 +8,7 @@ import {
   GithubIcon,
   LinkedInIcon,
   PinterestIcon,
+  Instagram,
   SunIcon,
   MoonIcon,
 } from "./Icons";
@@ -112,7 +113,7 @@ const NavBar = () => {
         </nav>
         <nav className="flex items-center justify-center flex-wrap">
           <motion.a
-            href="https://twitter.com"
+            href="https://twitter.com/abhiiiijain1"
             target={"_blank"}
             className="w-6 mx-3"
             whileHover={{ y: -2 }}
@@ -120,7 +121,7 @@ const NavBar = () => {
             <TwitterIcon />
           </motion.a>
           <motion.a
-            href="https://twitter.com"
+            href="https://github.com/abhiiiijain"
             target={"_blank"}
             className="w-6 mx-3"
             whileHover={{ y: -2 }}
@@ -128,7 +129,7 @@ const NavBar = () => {
             <GithubIcon />
           </motion.a>
           <motion.a
-            href="https://twitter.com"
+            href="https://www.linkedin.com/in/abhiiiijain/"
             target={"_blank"}
             className="w-6 mx-3"
             whileHover={{ y: -2 }}
@@ -136,21 +137,21 @@ const NavBar = () => {
             <LinkedInIcon />
           </motion.a>
           <motion.a
+            href="https://www.instagram.com/abhiiiijain/"
+            target={"_blank"}
+            className="w-6 ml-3"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}>
+            <Instagram />
+          </motion.a>
+          {/* <motion.a
             href="https://twitter.com"
             target={"_blank"}
             className="w-6 mx-3 bg-light rounded-full"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}>
             <PinterestIcon />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com"
-            target={"_blank"}
-            className="w-6 ml-3"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}>
-            <DribbbleIcon />
-          </motion.a>
+          </motion.a> */}
 
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -202,7 +203,7 @@ const NavBar = () => {
           </nav>
           <nav className="flex items-center justify-center flex-wrap mt-2">
             <motion.a
-              href="https://twitter.com"
+              href="https://twitter.com/abhiiiijain1"
               target={"_blank"}
               className="w-6 mx-3 sm:mx-1"
               whileHover={{ y: -2 }}
@@ -210,7 +211,7 @@ const NavBar = () => {
               <TwitterIcon />
             </motion.a>
             <motion.a
-              href="https://twitter.com"
+              href="https://github.com/abhiiiijain"
               target={"_blank"}
               className="w-6 mx-3 bg-light rounded-full dark:bg-dark sm:mx-1"
               whileHover={{ y: -2 }}
@@ -218,7 +219,7 @@ const NavBar = () => {
               <GithubIcon />
             </motion.a>
             <motion.a
-              href="https://twitter.com"
+              href="https://www.linkedin.com/in/abhiiiijain/"
               target={"_blank"}
               className="w-6 mx-3 sm:mx-1"
               whileHover={{ y: -2 }}
@@ -226,21 +227,21 @@ const NavBar = () => {
               <LinkedInIcon />
             </motion.a>
             <motion.a
+              href="https://www.instagram.com/abhiiiijain/"
+              target={"_blank"}
+              className="w-6 ml-3 sm:mx-1"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}>
+              <Instagram />
+            </motion.a>
+            {/* <motion.a
               href="https://twitter.com"
               target={"_blank"}
               className="w-6 mx-3 bg-light rounded-full sm:mx-1"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}>
               <PinterestIcon />
-            </motion.a>
-            <motion.a
-              href="https://twitter.com"
-              target={"_blank"}
-              className="w-6 ml-3 sm:mx-1"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}>
-              <DribbbleIcon />
-            </motion.a>
+            </motion.a> */}
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}

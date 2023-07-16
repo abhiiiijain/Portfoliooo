@@ -48,7 +48,8 @@ const MovingImage = ({ title, img, link }) => {
         alt={title}
         className="z-10 w-96 h-auto hidden absolute rounded-lg
         md:!hidden 
-        "/>
+        "
+      />
     </Link>
   );
 };
@@ -65,7 +66,8 @@ const Certification = ({ img, title, date, link }) => {
     sm:flex-col
     ">
       <MovingImage title={title} img={img} link={link} />
-      <span className="text-primary font-semibold pl-4 dark:text-primaryDark
+      <span
+        className="text-primary font-semibold pl-4 dark:text-primaryDark
       sm:self-start sm:pl-0 xs:test-sm
       ">
         {date}

@@ -55,20 +55,20 @@ const Education = () => {
           <Details
             type="B.Tech"
             time="2019 - 2023"
-            place="Chandigahr"
-            info="Relevant courses including Data Structure and Algorithms.."
+            place="Chandigarh Engineering College"
+            info=""
           />
           <Details
-            type="B.Tech"
-            time="2019 - 2023"
-            place="Chandigahr"
-            info="Relevant courses including Data Structure and Algorithms.."
+            type="Senior Secondary Education"
+            time="2017 - 2018"
+            place="Jawahar Navodaya Vidyalaya"
+            info=""
           />
           <Details
-            type="B.Tech"
-            time="2019 - 2023"
-            place="Chandigahr"
-            info="Relevant courses including Data Structure and Algorithms.."
+            type="Secondary Education"
+            time="2015 - 2016"
+            place="P.L. Jindal Convent School, Ratia"
+            info=""
           />
         </ul>
       </div>

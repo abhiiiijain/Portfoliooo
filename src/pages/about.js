@@ -61,23 +61,23 @@ const about = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I'm CodeBucks, a web developer and UI/UX designer with a
+                Hi, I'm Abhinandan Jain, a web developer and UI/UX designer with a
                 passion for creating beautiful, functional, and user-centered
-                digital experiences. With 4 years of experience in the field. I
-                am always looking for new and innovative ways to bring my
-                clients' visions to life.
+                digital experiences. With 3 years of experience in the field.
               </p>
               <p className="font-medium my-4">
-                I believe that design is about more than just making things look
-                pretty – it's about solving problems and creating intuitive,
-                enjoyable experiences for users.{" "}
+              I did my Bachelor's of Technology in 
+                Computer Science from Chandigarh Engineering College, CGC Landran. My skills include 
+                proficiency in C++, Data Structures and Algorithms (DSA), and Web Development. 
               </p>
               <p className="font-medium">
-                Whether I'm working on a website, mobile app, or other digital
-                product, I bring my commitment to design excellence and
-                user-centered thinking to every project I work on. I look
-                forward to the opportunity to bring my skills and passion to
-                your next project.
+                I am driven by the desire to work and grow in a dynamic and competitive workplace, 
+                where I can explore cutting-edge technologies, expand my knowledge horizons, and achieve 
+                both personal and organizational objectives. 
+                I have hands-on experience in C++ programming and have earned a 5-star C++ badge 
+                on Hackerrank. In addition, I am adept at web development technologies such as HTML, 
+                CSS, JavaScript, and ReactJS. I possess strong problem-solving skills and a 
+                solid understanding of data structures.
               </p>
             </div>
 
@@ -106,24 +106,10 @@ const about = () => {
                 className="flex flex-col items-end justify-center xl:items-center
               ">
                 <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
-                  <AnimatedNumbers value={50} />+
+                  <AnimatedNumbers value={15} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 
-                xl:text-center md:text-lg sm:text-base xs:text-sm
-                ">
-                  Satisfied clients
-                </h2>
-              </div>
-
-              <div
-                className="flex flex-col items-end justify-center xl:items-center
-              ">
-                <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
-                  <AnimatedNumbers value={40} />+
-                </span>
-                <h2
-                  className="text-xl font-medium capitalize text-dark/75 dark:text-light/75
                 xl:text-center md:text-lg sm:text-base xs:text-sm
                 ">
                   Projects completed
@@ -132,9 +118,23 @@ const about = () => {
 
               <div
                 className="flex flex-col items-end justify-center xl:items-center
+                ">
+                <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
+                  <AnimatedNumbers value={" "} />
+                </span>
+                <h2
+                  className="text-xl font-medium capitalize text-dark/75 dark:text-light/75
+                  xl:text-center md:text-lg sm:text-base xs:text-sm
+                  ">
+                  {/* Satisfied clients */}
+                </h2>
+              </div>
+
+              <div
+                className="flex flex-col items-end justify-center xl:items-center
               ">
                 <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
-                  <AnimatedNumbers value={4} />+
+                  <AnimatedNumbers value={3} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 dark:text-light/75
@@ -146,8 +146,8 @@ const about = () => {
             </div>
           </div>
           <Skills />
-          <Experience />
           <Education />
+          <Experience />
         </Layout>
       </main>
     </>
