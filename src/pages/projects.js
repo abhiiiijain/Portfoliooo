@@ -7,15 +7,24 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import samadhan from "../../public/images/projects/samadhan.png";
-import woodcase from "../../public/images/projects/woodcase.png"
-import portfolioo from "../../public/images/projects/portfolioo.png"
-import portfolio from "../../public/images/projects/portfolio.png"
+import woodcase from "../../public/images/projects/woodcase.png";
+import portfolioo from "../../public/images/projects/portfolioo.png";
+import portfolio from "../../public/images/projects/portfolio.png";
+import arkitektur from "../../public/images/projects/arkitektur.png";
 import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
-const FeaturedProject = ({ type, title, summary, img, link, github }) => {
+const FeaturedProject = ({
+  type,
+  title,
+  summary,
+  img,
+  link,
+  github,
+  languages,
+}) => {
   return (
     <article
       className="w-full flex items-center justify-between relative rounded-br-2xl
@@ -66,6 +75,12 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             {title}
           </h2>
         </Link>
+        <h2
+          className="my-2 w-full text-left text-xl font-semibold
+          lg:text-2xl dark:text-light sm:text-sm
+          ">
+          {languages}
+        </h2>
         <p
           className="my-2 font-medium text-dark dark:text-light sm:text-sm
         ">
@@ -90,7 +105,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   );
 };
 
-const Project = ({ title, type, img, link, github }) => {
+const Project = ({ title, type, img, link, github, languages }) => {
   return (
     <article
       className="w-full flex flex-col items-center justify-center rounded-2xl
@@ -127,11 +142,17 @@ const Project = ({ title, type, img, link, github }) => {
           className="hover:underline underline-offset-2">
           <h2
             className="my-2 w-full text-left text-3xl font-bold
-          lg:text-2xl
+          lg:text-2xl dark:text-light sm:text-xl
           ">
             {title}
           </h2>
         </Link>
+        <h2
+          className="my-2 w-full text-left text-xl font-semibold
+          lg:text-2xl dark:text-light sm:text-xl
+          ">
+          {languages}
+        </h2>
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
             href={link}
@@ -168,12 +189,13 @@ const projects = () => {
           <div className="grid grif-col-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
             <div className="col-span-12">
               <FeaturedProject
-                title="Crypto Screener Application"
-                img={project1}
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency."
-                link="/"
-                github="/"
-                type="Featued Project"
+                title="Arkitektur - An Interior Design Website"
+                img={arkitektur}
+                summary="A feature-rich Interior Design website using React, MongoDB and React Router. You can easily book services like Architecture, 3D Animation, House Planning, Renovation, Interior Design and Construction."
+                link="https://github.com/abhiiiijain/Arkitektur/"
+                github="https://github.com/abhiiiijain/Arkitektur/"
+                type="Website"
+                languages="ReactJs, MongoDb, ExpressJs, NodeJs"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -183,6 +205,7 @@ const projects = () => {
                 link="https://abhiiiijain.github.io/Samadhan/"
                 github="https://github.com/abhiiiijain/Samadhan/"
                 type="Website"
+                languages="Html, Css"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -192,25 +215,28 @@ const projects = () => {
                 link="https://github.com/abhiiiijain/WOODCASE/"
                 github="https://github.com/abhiiiijain/WOODCASE/"
                 type="Website"
+                languages="Html, Scss, JavaScript"
               />
             </div>
             <div className="col-span-12">
               <FeaturedProject
                 title="Portfolio"
                 img={portfolioo}
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency."
-                link="https://abhiiiijain.github.io/Portfolioo//"
+                summary=" It offers a responsive and interactive user interface, allowing visitors to explore projects, view skills, and learn more about the developer."
+                link="https://abhiiiijain.github.io/Portfolioo/"
                 github="https://github.com/abhiiiijain/Portfolioo/"
                 type="Portfolio Website"
+                languages="ReactJs"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
                 title="HTML Portfolio"
                 img={portfolio}
-                link="https://abhiiiijain.github.io/Portfolio//"
+                link="https://abhiiiijain.github.io/Portfolio/"
                 github="https://github.com/abhiiiijain/Portfolio/"
                 type="Portfolio Website"
+                languages="Html, Css, JavaScript"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -220,6 +246,7 @@ const projects = () => {
                 link="/"
                 github="/"
                 type="Featued Project"
+                languages="Html, Css, JavaScript"
               />
             </div>
           </div>
