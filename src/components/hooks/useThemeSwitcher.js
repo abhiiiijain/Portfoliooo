@@ -12,7 +12,7 @@ const useThemeSwitcher = () => {
       if (userPref) {
         let check = userPref === "dark" ? "dark" : "light";
         setMode(check);
-        if (check == "dark") {
+        if (check === "dark") {
           document.documentElement.classList.add("dark");
         } else {
           document.documentElement.classList.remove("dark");
@@ -21,13 +21,15 @@ const useThemeSwitcher = () => {
         let check = mediaQuery.matches ? "dark" : "light";
         setMode(check);
 
-        if (check == "dark") {
+        if (check === "dark") {
           document.documentElement.classList.add("dark");
         } else {
           document.documentElement.classList.remove("dark");
         }
       }
     };
+
+    handleChange();
 
     mediaQuery.addEventListener("change", handleChange);
 
@@ -38,7 +40,9 @@ const useThemeSwitcher = () => {
     if (mode === "dark") {
       window.localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
-    } else {
+    }
+
+    if (mode === "light") {
       window.localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
     }
