@@ -6,12 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import samadhan from "../../public/images/projects/samadhan.png";
+import arkitektur from "../../public/images/projects/arkitektur.png";
 import woodcase from "../../public/images/projects/woodcase.png";
+import samadhan from "../../public/images/projects/samadhan.png";
 import portfolioo from "../../public/images/projects/portfolioo.png";
 import portfolio from "../../public/images/projects/portfolio.png";
-import arkitektur from "../../public/images/projects/arkitektur.png";
-import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
+import sars from "../../public/images/projects/sars.png";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
@@ -200,22 +200,22 @@ const projects = () => {
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
-                title="Samadhan - Website for Notes"
-                img={samadhan}
-                link="https://abhiiiijain.github.io/Samadhan/"
-                github="https://github.com/abhiiiijain/Samadhan/"
-                type="Website"
-                languages="Html, Css"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
                 title="WoodCase"
                 img={woodcase}
                 link="https://github.com/abhiiiijain/WOODCASE/"
                 github="https://github.com/abhiiiijain/WOODCASE/"
                 type="Website"
                 languages="Html, Scss, JavaScript"
+              />
+            </div>
+            <div className="col-span-6 sm:col-span-12">
+              <Project
+                title="SARS-Imprecation"
+                img={sars}
+                link="https://github.com/abhiiiijain/SARS-Imprecation/"
+                github="https://github.com/abhiiiijain/SARS-Imprecation/"
+                type="Website"
+                languages="Php, MySql, BootStrap"
               />
             </div>
             <div className="col-span-12">
@@ -241,12 +241,12 @@ const projects = () => {
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
-                title="Crypto Screener Application"
-                img={project1}
-                link="/"
-                github="/"
-                type="Featued Project"
-                languages="Html, Css, JavaScript"
+                title="Samadhan - Website for Notes"
+                img={samadhan}
+                link="https://abhiiiijain.github.io/Samadhan/"
+                github="https://github.com/abhiiiijain/Samadhan/"
+                type="Website"
+                languages="Html, Css"
               />
             </div>
           </div>
