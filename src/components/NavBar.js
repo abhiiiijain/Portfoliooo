@@ -139,7 +139,7 @@ const NavBar = () => {
           <motion.a
             href="https://www.instagram.com/abhiiiijain/"
             target={"_blank"}
-            className="w-6 ml-3"
+            className="w-6 mx-3"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}>
             <Instagram />
@@ -229,7 +229,7 @@ const NavBar = () => {
             <motion.a
               href="https://www.instagram.com/abhiiiijain/"
               target={"_blank"}
-              className="w-6 ml-3 sm:mx-1"
+              className="w-6 mx-3 sm:mx-1"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}>
               <Instagram />
@@ -245,7 +245,7 @@ const NavBar = () => {
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`ml-5 flex items-center justify-center rounded-full
+              className={`ml-3 flex items-center justify-center rounded-full
           ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}
           `}>
               {mode === "dark" ? (
