@@ -8,8 +8,11 @@ import {
   GithubIcon,
   LinkedInIcon,
   PinterestIcon,
+  SunIcon,
+  MoonIcon,
 } from "./Icons";
 import { motion } from "framer-motion";
+import useThemeSwitcher from "./hooks/useThemeSwitcher";
 
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
@@ -32,13 +35,19 @@ const CustomLink = ({ href, title, className = "" }) => {
 };
 
 const NavBar = () => {
+  const [mode, setMode] = useThemeSwitcher();
+
   return (
     <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
       <nav>
         <CustomLink href="/" title="Home" className="mr-4" />
         <CustomLink href="/about" title="About" className="mx-4" />
         <CustomLink href="/projects" title="Projects" className="mx-4" />
-        <CustomLink href="/articles" title="Articles" className="ml-4" />
+        <CustomLink
+          href="/certifications"
+          title="Certifications"
+          className="ml-4"
+        />
       </nav>
       <nav className="flex itmes-center justify-center flex-warp">
         <motion.a
@@ -81,6 +90,16 @@ const NavBar = () => {
           className="w-6 ml-3">
           <DribbbleIcon />
         </motion.a>
+
+        <button onClick={() => setMode(mode === "light" ? "dark" : "light")}
+        className="ml-5 flex items-center justify-center rounded-full
+        ">
+          {mode === "dark" ? (
+            <SunIcon className={"fill-dark"} />
+          ) : (
+            <MoonIcon className={"fill-dark"} />
+          )}
+        </button>
       </nav>
 
       <div className="absolute left-[50%] top-2 traslat-x-[-50%]">
