@@ -7,6 +7,7 @@ import React, { useRef } from "react";
 import certification1 from "../../public/images/articles/pagination component in reactjs.jpg";
 import certification2 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
 import { easeInOut, motion, useMotionValue } from "framer-motion";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -122,6 +123,7 @@ const certifications = () => {
         <title>Abhiiiijain | Certifications Page</title>
         <meta name="description" content="any description"></meta>
       </Head>
+      <TransitionEffect />
       <main
         className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden
       dark:text-light

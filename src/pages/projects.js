@@ -7,6 +7,7 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -40,7 +41,8 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
                 50vw"
         />
       </Link>
-      <div className="w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full
+      <div
+        className="w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full
       lg:pl-0 lg:pt-6
       ">
         <span
@@ -119,9 +121,12 @@ const Project = ({ title, type, img, link, github }) => {
           href={link}
           target="_blank"
           className="hover:underline underline-offset-2">
-          <h2 className="my-2 w-full text-left text-3xl font-bold
+          <h2
+            className="my-2 w-full text-left text-3xl font-bold
           lg:text-2xl
-          ">{title}</h2>
+          ">
+            {title}
+          </h2>
         </Link>
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
@@ -147,12 +152,14 @@ const projects = () => {
         <title>Abhiiiijain | Projects Page</title>
         <meta name="description" content="any description"></meta>
       </Head>
+      <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
             text="Imagination Trumps Knowledge!"
             className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl
-            "/>
+            "
+          />
 
           <div className="grid grif-col-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
             <div className="col-span-12">
