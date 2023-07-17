@@ -43,7 +43,7 @@ const MovingImage = ({ title, img, link }) => {
       onMouseMove={handleMouse}
       onMouseLeave={handleMouseLeave}>
       <h2
-        className="capitalize text-xl font-semibold hover:underline
+        className="capitalize text-xl font-semibold hover:underline md:text-center lg:text-lg md:text-sm
         ">
         {title}
       </h2>
@@ -71,14 +71,14 @@ const Certification = ({ img, title, date, link, company }) => {
       className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center
     justify-between bg-light text-dark first:mt-0 border border-solid border-dark
     border-r-4 border-b-4 dark:border-light dark:bg-dark dark:text-light
-    sm:flex-col
+    sm:flex-col flex-wrap
     ">
       <MovingImage title={title} img={img} link={link} />
-      <div className="flex flex-col w-[15%] ">
-        <span className="text-center text-primary font-semibold pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:test-sm">
+      <div className="flex flex-col w-[20%] xs:justify-between xs:items-center">
+        <span className="text-center text-primary font-semibold dark:text-primaryDark md:text-sm ">
           {company}
         </span>
-        <span className="text-center text-primary font-semibold pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:test-sm">
+        <span className="text-center text-primary font-semibold dark:text-primaryDark md:text-sm ">
           {date}
         </span>
       </div>
@@ -86,7 +86,7 @@ const Certification = ({ img, title, date, link, company }) => {
   );
 };
 
-const FearutedCertification = ({ img, title, date, company, link, verify }) => {
+const FearutedCertification = ({ img, title, date, company, link }) => {
   return (
     <li
       className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl
