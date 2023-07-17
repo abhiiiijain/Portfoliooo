@@ -78,7 +78,7 @@ const Experience = () => {
           />
           <Details
             position="Software Engineer"
-            company="Connectings Points Tech"
+            company="Connecting Points Tech"
             // companyLink="/"
             time="Jun 2022 - Sep 2022"
             address="Mohali, INDIA"
