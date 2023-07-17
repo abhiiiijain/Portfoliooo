@@ -6,14 +6,14 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import mern from "../../public/images/certificates/mern.png";
 import react from "../../public/images/certificates/react.png";
-import certcnpython from "../../public/images/certificates/certcnpython.png";
-import certhrsql from "../../public/images/certificates/certhrsql.png";
-import certcrcpp from "../../public/images/certificates/certcrcpp.png";
-import certhrc from "../../public/images/certificates/certhrc.png";
-import certcrhtml from "../../public/images/certificates/certcrhtml.png";
-import certcrcss from "../../public/images/certificates/certcrcss.png";
-import certcrc from "../../public/images/certificates/certcrc.png";
-import certhrreact from "../../public/images/certificates/certhrreact.png";
+import CertCnPython from "../../public/images/certificates/certcnpython.png";
+import CertHrSql from "../../public/images/certificates/certhrsql.png";
+import CertCrCpp from "../../public/images/certificates/certcrcpp.png";
+import CertHrC from "../../public/images/certificates/certhrc.png";
+import CertCrHtml from "../../public/images/certificates/certcrhtml.png";
+import CertCrCss from "../../public/images/certificates/certcrcss.png";
+import CertCrC from "../../public/images/certificates/certcrc.png";
+import CertHrReact from "../../public/images/certificates/certhrreact.png";
 import { easeInOut, motion, useMotionValue } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -75,10 +75,10 @@ const Certification = ({ img, title, date, link, company }) => {
     ">
       <MovingImage title={title} img={img} link={link} />
       <div className="flex flex-col w-[20%] xs:justify-between xs:items-center">
-        <span className="text-center text-primary font-semibold dark:text-primaryDark md:text-sm ">
+        <span className="text-center text-lg text-primary font-semibold dark:text-primaryDark lg:text-lg md:text-sm ">
           {company}
         </span>
-        <span className="text-center text-primary font-semibold dark:text-primaryDark md:text-sm ">
+        <span className="text-center text-lg text-primary font-semibold dark:text-primaryDark lg:text-lg md:text-sm ">
           {date}
         </span>
       </div>
@@ -245,56 +245,56 @@ const certifications = () => {
               company="HackerRank"
               date="Sep 29, 2021"
               link="https://www.hackerrank.com/certificates/aa092616e2d1/"
-              img={certhrsql}
+              img={CertHrSql}
             />
             <Certification
               title="React (Basic)"
               company="HackerRank"
               date="Sep 28, 2021"
               link="https://www.hackerrank.com/certificates/18fb8a9f4368/"
-              img={certhrreact}
+              img={CertHrReact}
             />
             <Certification
               title="Introduction to Python"
               company="Coding Ninjas"
               date="Sep 27, 2020"
               link="https://ninjasfiles.s3.amazonaws.com/certificate10579455ae927e27c9741d63d3f039c4a7f566e.pdf"
-              img={certcnpython}
+              img={CertCnPython}
             />
             <Certification
               title="C (Advanced)"
               company="HackerRank"
               date="Sep 15, 2020"
               link="https://www.hackerrank.com/certificates/53f0b0236fe8/"
-              img={certhrc}
+              img={CertHrC}
             />
             <Certification
               title="C++ For C Programmers"
               company="Coursera"
               date="May 28, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/94PDADY56XCY/"
-              img={certcrcpp}
+              img={CertCrCpp}
             />
             <Certification
               title="Introduction to CSS3"
               company="Coursera"
               date="May 24, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
-              img={certcrcss}
+              img={CertCrCss}
             />
             <Certification
               title="C for Everyone: Programming Fundamentals"
               company="Coursera"
               date="May 11, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/UZ2X95M7KNDL/"
-              img={certcrc}
+              img={CertCrC}
             />
             <Certification
               title="Introduction to HTML5"
               company="Coursera"
               date="May 08, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
-              img={certcrhtml}
+              img={CertCrHtml}
             />
           </ul>
         </Layout>
