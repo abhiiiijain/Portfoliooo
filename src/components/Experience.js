@@ -35,7 +35,7 @@ const Details = ({ position, company, companyLink, time, address, work, tech }) 
           {work}
         </p>
         <p
-          className="font-medium w-full md:text-sm
+          className="font-medium w-full md:text-sm text-primary dark:text-primaryDark
         ">
           Tech: {tech}
         </p>
@@ -82,7 +82,7 @@ const Experience = () => {
             // companyLink="/"
             time="Jun 2022 - Sep 2022"
             address="Mohali, INDIA"
-            work="Used multiple libraries like React, Redux, AntDesign and Tailwind to build a scalable banking project."
+            work="• Used multiple libraries like React, Redux, AntDesign and Tailwind to build a scalable banking project."
             tech="ReactJs"
           />
           <Details
@@ -107,7 +107,7 @@ const Experience = () => {
             // companyLink="/"
             time="2022-Present"
             address="Landran, INIDA"
-            work="Mastered PHP and built an ecommerce platform like amazon which provide features like cart, search."
+            work="• Mastered PHP and built an ecommerce platform like amazon which provide features like cart, search."
             tech= "PHP, MySQL, HTML, CSS"
           />
         </ul>
