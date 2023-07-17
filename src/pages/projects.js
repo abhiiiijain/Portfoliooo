@@ -16,15 +16,7 @@ import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
-const FeaturedProject = ({
-  type,
-  title,
-  summary,
-  img,
-  link,
-  github,
-  tech,
-}) => {
+const FeaturedProject = ({ type, title, summary, img, link, github, tech }) => {
   return (
     <article
       className="w-full flex items-center justify-between relative rounded-br-2xl
@@ -45,7 +37,7 @@ const FeaturedProject = ({
         <FramerImage
           src={img}
           alt="title of project"
-          className="w-full h-auto"
+          className="w-full h-auto rounded-xl border border-solid border-dark dark:border-light"
           whileHover={{ scale: 1.05 }}
           transition={{ duartion: 0.2 }}
           priority
@@ -124,7 +116,7 @@ const Project = ({ title, type, img, link, github, tech }) => {
         <FramerImage
           src={img}
           alt="title of project"
-          className="w-full h-auto"
+          className="w-full h-auto rounded-xl border border-solid border-dark dark:border-light"
           whileHover={{ scale: 1.05 }}
           transition={{ duartion: 0.2 }}
         />
