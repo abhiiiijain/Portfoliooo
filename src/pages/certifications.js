@@ -171,6 +171,70 @@ const certifications = () => {
               img={react}
             />
           </ul>
+          {/* <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
+            <FearutedCertification
+              title="SQL Basic"
+              company="HackerRank"
+              date="Sep 29, 2021"
+              link="https://www.hackerrank.com/certificates/aa092616e2d1/"
+              img={certhrsql}
+            />
+            <FearutedCertification
+              title="React (Basic)"
+              company="HackerRank"
+              date="Sep 28, 2021"
+              link="https://www.hackerrank.com/certificates/18fb8a9f4368/"
+              img={certhrreact}
+            />
+          </ul>
+          <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
+            <FearutedCertification
+              title="Introduction to Python"
+              company="Coding Ninjas"
+              date="Sep 27, 2020"
+              link="https://ninjasfiles.s3.amazonaws.com/certificate10579455ae927e27c9741d63d3f039c4a7f566e.pdf"
+              img={certcnpython}
+            />
+            <FearutedCertification
+              title="C (Advanced)"
+              company="HackerRank"
+              date="Sep 15, 2020"
+              link="https://www.hackerrank.com/certificates/53f0b0236fe8/"
+              img={certhrc}
+            />
+          </ul>
+          <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
+            <FearutedCertification
+              title="C++ For C Programmers"
+              company="Coursera"
+              date="May 28, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/94PDADY56XCY/"
+              img={certcrcpp}
+            />
+            <FearutedCertification
+              title="Introduction to CSS3"
+              company="Coursera"
+              date="May 24, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
+              img={certcrcss}
+            />
+          </ul>
+          <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
+            <FearutedCertification
+              title="C for Everyone: Programming Fundamentals"
+              company="Coursera"
+              date="May 11, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/UZ2X95M7KNDL/"
+              img={certcrc}
+            />
+            <FearutedCertification
+              title="Introduction to HTML5"
+              company="Coursera"
+              date="May 08, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
+              img={certcrhtml}
+            />
+          </ul> */}
           <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
             All Certifications
           </h2>
