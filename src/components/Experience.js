@@ -2,13 +2,13 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
 
-const Details = ({ position, company, companyLink, time, address, work }) => {
+const Details = ({ position, company, companyLink, time, address, work, tech }) => {
   const ref = useRef(null);
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto first-letter:
-    flex flex-col items-center justify-between md:w-[80%]
+      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto 
+      flex flex-col items-left justify-between md:w-[80%]
     ">
       <LiIcon reference={ref} />
       <motion.div
@@ -33,6 +33,11 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
           className="font-medium w-full md:text-sm
         ">
           {work}
+        </p>
+        <p
+          className="font-medium w-full md:text-sm
+        ">
+          Tech: {tech}
         </p>
       </motion.div>
     </li>
@@ -65,26 +70,45 @@ const Experience = () => {
           <Details
             position="MERN Stack Intern"
             company="A2it Solution Pvt. Ltd."
-            companyLink="www.google.com"
+            // companyLink="/"
             time="Jan 2023 - Jun 2023"
             address="Mohali, INDIA"
             work=""
+            tech="ReactJs, MongoBD"
           />
           <Details
             position="Software Engineer"
             company="Connectings Points Tech"
-            companyLink="www.google.com"
+            // companyLink="/"
             time="Jun 2022 - Sep 2022"
             address="Mohali, INDIA"
-            work=""
+            work="Used multiple libraries like React, Redux, AntDesign and Tailwind to build a scalable banking project."
+            tech="ReactJs"
           />
           <Details
             position="ReactJs Training"
             company="ThinkNext Technologies Pvt. Ltd. "
-            companyLink="www.google.com"
+            // companyLink="/"
+            time="Jul 2021 - Aug 2021"
+            address="Mohali, INDIA"
+            work={
+              <li>
+                • React.js, JavaScript, with hands-on experience in building interactive and responsive web applications.<br/>
+                • Developed a project using React.js to create a front-end web application that solved a specific problem.<br/>
+                • Implemented Redux, Axios, and React Router to improve user experience by 10% based on the usability tests.<br/>
+                • Developed a new application with improved performance and scalability by implementing best practices learned while developing.
+              </li>
+            }
+            tech= "React, MongoDb"
+          />
+          <Details
+            position="PHP Training"
+            company="Chandiagrh Engineering College "
+            // companyLink="/"
             time="2022-Present"
-            address="Mountain View, CA"
-            work=""
+            address="Landran, INIDA"
+            work="Mastered PHP and built an ecommerce platform like amazon which provide features like cart, search."
+            tech= "PHP, MySQL, HTML, CSS"
           />
         </ul>
       </div>

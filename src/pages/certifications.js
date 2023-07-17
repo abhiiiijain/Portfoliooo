@@ -4,8 +4,16 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
-import certification1 from "../../public/images/articles/pagination component in reactjs.jpg";
-import certification2 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
+import mern from "../../public/images/certificates/mern.png";
+import react from "../../public/images/certificates/react.png";
+import certcnpython from "../../public/images/certificates/certcnpython.png";
+import certhrsql from "../../public/images/certificates/certhrsql.png";
+import certcrcpp from "../../public/images/certificates/certcrcpp.png";
+import certhrc from "../../public/images/certificates/certhrc.png";
+import certcrhtml from "../../public/images/certificates/certcrhtml.png";
+import certcrcss from "../../public/images/certificates/certcrcss.png";
+import certcrc from "../../public/images/certificates/certcrc.png";
+import certhrreact from "../../public/images/certificates/certhrreact.png";
 import { easeInOut, motion, useMotionValue } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -54,11 +62,11 @@ const MovingImage = ({ title, img, link }) => {
   );
 };
 
-const Certification = ({ img, title, date, link }) => {
+const Certification = ({ img, title, date, link, company }) => {
   return (
     <motion.li
       initial={{ y: 200 }}
-      whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+      whileInView={{ y: 0, transition: { duration: 0.5, ease: easeInOut } }}
       viewport={{ once: true }}
       className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center
     justify-between bg-light text-dark first:mt-0 border border-solid border-dark
@@ -66,17 +74,19 @@ const Certification = ({ img, title, date, link }) => {
     sm:flex-col
     ">
       <MovingImage title={title} img={img} link={link} />
-      <span
-        className="text-primary font-semibold pl-4 dark:text-primaryDark
-      sm:self-start sm:pl-0 xs:test-sm
-      ">
-        {date}
-      </span>
+      <div className="flex flex-col w-[15%] ">
+        <span className="text-center text-primary font-semibold pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:test-sm">
+          {company}
+        </span>
+        <span className="text-center text-primary font-semibold pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:test-sm">
+          {date}
+        </span>
+      </div>
     </motion.li>
   );
 };
 
-const FearutedCertification = ({ img, title, time, summary, link }) => {
+const FearutedCertification = ({ img, title, date, company, link, verify }) => {
   return (
     <li
       className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl
@@ -92,7 +102,7 @@ const FearutedCertification = ({ img, title, time, summary, link }) => {
         className="w-full inline-block cursor-pointer overflow-hidden rounded-lg">
         <FramerImage
           src={img}
-          alt="title of pr oject"
+          alt="title of project"
           className="w-full h-auto"
           whileHover={{ scale: 1.05 }}
           transition={{ duartion: 0.2 }}
@@ -110,10 +120,19 @@ const FearutedCertification = ({ img, title, time, summary, link }) => {
           {title}
         </h2>
       </Link>
-      <p className="text-sm mb-2">{summary}</p>
-      <span className="text-primary font-semibold dark:text-primaryDark">
-        {time}
-      </span>
+      <p className="text-lg mb-2">{company}</p>
+      <div className="flex justify-between">
+        <span className="text-primary font-semibold dark:text-primaryDark">
+          {date}
+        </span>
+        <Link href={link} target="_blank">
+          <h2
+            className="text-primary font-semibold dark:text-primaryDark
+        ">
+            Verify
+          </h2>
+        </Link>
+      </div>
     </li>
   );
 };
@@ -138,22 +157,18 @@ const certifications = () => {
           />
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
             <FearutedCertification
-              title="Build A Custom Pagination Component In Reactjs From Scratch"
-              summary="
-            Learn how to build a custom pagination component in ReactJS from scratch. 
-            Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-              time="9 min read"
-              link="/"
-              img={certification1}
+              title="MERN Stack"
+              company="A2it Online Pvt. Ltd."
+              date="June 03, 2023"
+              link="https://drive.google.com/file/d/1IsY2qIs1rBV7XLZFS4VfciKgAWqxncDw/view?usp=sharing/"
+              img={mern}
             />
             <FearutedCertification
-              title="Build A Custom Pagination Component In Reactjs From Scratch"
-              summary="
-            Learn how to build a custom pagination component in ReactJS from scratch. 
-            Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-              time="9 min read"
-              link="/"
-              img={certification2}
+              title="ReactJs"
+              company="ThinkNext Techonologies Pvt. Ltd."
+              date="July 31, 2021"
+              link="https://certificates.thinknexttraining.com/en/verify/85494246192917/"
+              img={react}
             />
           </ul>
           <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
@@ -162,28 +177,60 @@ const certifications = () => {
 
           <ul>
             <Certification
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={certification1}
+              title="SQL Basic"
+              company="HackerRank"
+              date="Sep 29, 2021"
+              link="https://www.hackerrank.com/certificates/aa092616e2d1/"
+              img={certhrsql}
             />
             <Certification
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={certification1}
+              title="React (Basic)"
+              company="HackerRank"
+              date="Sep 28, 2021"
+              link="https://www.hackerrank.com/certificates/18fb8a9f4368/"
+              img={certhrreact}
             />
             <Certification
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={certification1}
+              title="Introduction to Python"
+              company="Coding Ninjas"
+              date="Sep 27, 2020"
+              link="https://ninjasfiles.s3.amazonaws.com/certificate10579455ae927e27c9741d63d3f039c4a7f566e.pdf"
+              img={certcnpython}
             />
             <Certification
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={certification1}
+              title="C (Advanced)"
+              company="HackerRank"
+              date="Sep 15, 2020"
+              link="https://www.hackerrank.com/certificates/53f0b0236fe8/"
+              img={certhrc}
+            />
+            <Certification
+              title="C++ For C Programmers"
+              company="Coursera"
+              date="May 28, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/94PDADY56XCY/"
+              img={certcrcpp}
+            />
+            <Certification
+              title="Introduction to CSS3"
+              company="Coursera"
+              date="May 24, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
+              img={certcrcss}
+            />
+            <Certification
+              title="C for Everyone: Programming Fundamentals"
+              company="Coursera"
+              date="May 11, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/UZ2X95M7KNDL/"
+              img={certcrc}
+            />
+            <Certification
+              title="Introduction to HTML5"
+              company="Coursera"
+              date="May 08, 2020"
+              link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
+              img={certcrhtml}
             />
           </ul>
         </Layout>

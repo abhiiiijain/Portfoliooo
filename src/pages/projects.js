@@ -23,7 +23,7 @@ const FeaturedProject = ({
   img,
   link,
   github,
-  languages,
+  tech,
 }) => {
   return (
     <article
@@ -79,7 +79,7 @@ const FeaturedProject = ({
           className="my-2 w-full text-left text-xl font-semibold
           lg:text-2xl dark:text-light sm:text-sm
           ">
-          {languages}
+          Tech: {tech}
         </h2>
         <p
           className="my-2 font-medium text-dark dark:text-light sm:text-sm
@@ -105,7 +105,7 @@ const FeaturedProject = ({
   );
 };
 
-const Project = ({ title, type, img, link, github, languages }) => {
+const Project = ({ title, type, img, link, github, tech }) => {
   return (
     <article
       className="w-full flex flex-col items-center justify-center rounded-2xl
@@ -151,7 +151,7 @@ const Project = ({ title, type, img, link, github, languages }) => {
           className="my-2 w-full text-left text-xl font-semibold
           lg:text-2xl dark:text-light sm:text-xl
           ">
-          {languages}
+          Tech: {tech}
         </h2>
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
@@ -195,7 +195,7 @@ const projects = () => {
                 link="https://github.com/abhiiiijain/Arkitektur/"
                 github="https://github.com/abhiiiijain/Arkitektur/"
                 type="Website"
-                languages="ReactJs, MongoDb, ExpressJs, NodeJs"
+                tech="ReactJS, MongoDB, ExpressJS, NodeJS"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -205,7 +205,7 @@ const projects = () => {
                 link="https://github.com/abhiiiijain/WOODCASE/"
                 github="https://github.com/abhiiiijain/WOODCASE/"
                 type="Website"
-                languages="Html, Scss, JavaScript"
+                tech="HTML, SCSS, JavaScript"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -215,7 +215,7 @@ const projects = () => {
                 link="https://github.com/abhiiiijain/SARS-Imprecation/"
                 github="https://github.com/abhiiiijain/SARS-Imprecation/"
                 type="Website"
-                languages="Php, MySql, BootStrap"
+                tech="PHP, MySQL, BootStrap"
               />
             </div>
             <div className="col-span-12">
@@ -226,7 +226,7 @@ const projects = () => {
                 link="https://abhiiiijain.github.io/Portfolioo/"
                 github="https://github.com/abhiiiijain/Portfolioo/"
                 type="Portfolio Website"
-                languages="ReactJs"
+                tech="ReactJS"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -236,7 +236,7 @@ const projects = () => {
                 link="https://abhiiiijain.github.io/Portfolio/"
                 github="https://github.com/abhiiiijain/Portfolio/"
                 type="Portfolio Website"
-                languages="Html, Css, JavaScript"
+                tech="HTML, CSS, JavaScript"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -246,7 +246,7 @@ const projects = () => {
                 link="https://abhiiiijain.github.io/Samadhan/"
                 github="https://github.com/abhiiiijain/Samadhan/"
                 type="Website"
-                languages="Html, Css"
+                tech="HTML, CSS"
               />
             </div>
           </div>

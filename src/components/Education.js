@@ -2,13 +2,13 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
 
-const Details = ({ type, time, place, info }) => {
+const Details = ({ type, time, place, info, trade }) => {
   const ref = useRef(null);
   return (
     <li
       ref={ref}
       className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto first-letter:
-    flex flex-col items-center justify-between md:w-[80%]
+    flex flex-col items-left justify-between md:w-[80%]
     ">
       <LiIcon reference={ref} />
       <motion.div
@@ -16,7 +16,11 @@ const Details = ({ type, time, place, info }) => {
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}>
         <h3 className="capitalize font-bold text-2xl sm:text-xl xs:text-lg">
-          {type}
+          {type}&nbsp;
+          <a
+            className="text-primary dark:text-primaryDark capitalize">
+            {trade}
+          </a>
         </h3>
         <span
           className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm
@@ -54,12 +58,16 @@ const Education = () => {
         <ul className=" w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
             type="B.Tech"
+            trade="| Computer Science"
             time="2019 - 2023"
             place="Chandigarh Engineering College"
-            info=""
+            info="Relevant courses included Data Structures and Algorithms, Operating Systems, 
+            Web Development, Networking, Databases, Object Oriented Programming,
+            Computer Systems Engineering."
           />
           <Details
             type="Senior Secondary Education"
+            trade="| Non-Medical"
             time="2017 - 2018"
             place="Jawahar Navodaya Vidyalaya"
             info=""
