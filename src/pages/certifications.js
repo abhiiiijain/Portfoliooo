@@ -241,7 +241,7 @@ const certifications = () => {
 
           <ul>
             <Certification
-              title="SQL Basic"
+              title="SQL (Basic)"
               company="HackerRank"
               date="Sep 29, 2021"
               link="https://www.hackerrank.com/certificates/aa092616e2d1/"
