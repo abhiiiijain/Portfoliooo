@@ -254,13 +254,13 @@ const certifications = () => {
               link="https://www.hackerrank.com/certificates/18fb8a9f4368/"
               img={CertHrReact}
             />
-            <Certification
+            {/* <Certification
               title="Introduction to Python"
               company="Coding Ninjas"
               date="Sep 27, 2020"
               link="https://ninjasfiles.s3.amazonaws.com/certificate10579455ae927e27c9741d63d3f039c4a7f566e.pdf"
               img={CertCnPython}
-            />
+            /> */}
             <Certification
               title="C (Advanced)"
               company="HackerRank"
@@ -268,34 +268,34 @@ const certifications = () => {
               link="https://www.hackerrank.com/certificates/53f0b0236fe8/"
               img={CertHrC}
             />
-            <Certification
+            {/* <Certification
               title="C++ For C Programmers"
               company="Coursera"
               date="May 28, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/94PDADY56XCY/"
               img={CertCrCpp}
-            />
-            <Certification
+            /> */}
+            {/* <Certification
               title="Introduction to CSS3"
               company="Coursera"
               date="May 24, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
               img={CertCrCss}
-            />
-            <Certification
+            /> */}
+            {/* <Certification
               title="C for Everyone: Programming Fundamentals"
               company="Coursera"
               date="May 11, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/UZ2X95M7KNDL/"
               img={CertCrC}
-            />
-            <Certification
+            /> */}
+            {/* <Certification
               title="Introduction to HTML5"
               company="Coursera"
               date="May 08, 2020"
               link="https://www.coursera.org/account/accomplishments/certificate/NUEWY98LUPZT/"
               img={CertCrHtml}
-            />
+            /> */}
           </ul>
         </Layout>
       </main>
