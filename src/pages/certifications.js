@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 import mern from "../../public/images/certificates/mern.png";
 import react from "../../public/images/certificates/react.png";
 import CertCnPython from "../../public/images/certificates/certcnpython.png";
-import CertHrSql from "../../public/images/certificates/certhrsql.png";
+import CertHrSqla from "../../public/images/certificates/certhrsqla.png";
 import CertCrCpp from "../../public/images/certificates/certcrcpp.png";
 import CertHrC from "../../public/images/certificates/certhrc.png";
 import CertCrHtml from "../../public/images/certificates/certcrhtml.png";
@@ -241,11 +241,11 @@ const certifications = () => {
 
           <ul>
             <Certification
-              title="SQL (Basic)"
+              title="SQL (Intermediate)"
               company="HackerRank"
-              date="Sep 29, 2021"
-              link="https://www.hackerrank.com/certificates/aa092616e2d1/"
-              img={CertHrSql}
+              date="Jul 18, 2023"
+              link="https://www.hackerrank.com/certificates/c4d15bcc8094/"
+              img={CertHrSqla}
             />
             <Certification
               title="React (Basic)"
