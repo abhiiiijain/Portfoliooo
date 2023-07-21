@@ -214,7 +214,7 @@ const projects = () => {
               <FeaturedProject
                 title="Portfolio"
                 img={portfolioo}
-                summary=" It offers a responsive and interactive user interface, allowing visitors to explore projects, view skills, and learn more about the developer."
+                summary=" It offers a responsive & interactive user interface, allowing visitors to explore projects, view skills, and learn more about the developer."
                 link="https://abhiiiijain.github.io/Portfolioo/"
                 github="https://github.com/abhiiiijain/Portfolioo/"
                 type="Portfolio Website"
