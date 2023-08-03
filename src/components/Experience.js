@@ -2,7 +2,15 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
 
-const Details = ({ position, company, companyLink, time, address, work, tech }) => {
+const Details = ({
+  position,
+  company,
+  companyLink,
+  time,
+  address,
+  work,
+  tech,
+}) => {
   const ref = useRef(null);
   return (
     <li
@@ -93,13 +101,20 @@ const Experience = () => {
             address="Mohali, INDIA"
             work={
               <li>
-                • React.js, JavaScript, with hands-on experience in building interactive and responsive web applications.<br/>
-                • Developed a project using React.js to create a front-end web application that solved a specific problem.<br/>
-                • Implemented Redux, Axios, and React Router to improve user experience by 10% based on the usability tests.<br/>
-                • Developed a new application with improved performance and scalability by implementing best practices learned while developing.
+                • React.js, JavaScript, with hands-on experience in building
+                interactive and responsive web applications.
+                <br />
+                • Developed a project using React.js to create a front-end web
+                application that solved a specific problem.
+                <br />
+                • Implemented Redux, Axios, and React Router to improve user
+                experience by 10% based on the usability tests.
+                <br />• Developed a new application with improved performance
+                and scalability by implementing best practices learned while
+                developing.
               </li>
             }
-            tech= "React, MongoDb"
+            tech="React, MongoDb"
           />
           <Details
             position="PHP Training"
@@ -108,7 +123,7 @@ const Experience = () => {
             time="2022-Present"
             address="Landran, INIDA"
             work="• Mastered PHP and built an ecommerce platform like amazon which provide features like cart, search."
-            tech= "PHP, MySQL, HTML, CSS"
+            tech="PHP, MySQL, HTML, CSS"
           />
         </ul>
       </div>

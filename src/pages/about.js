@@ -61,23 +61,26 @@ const about = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I'm Abhinandan Jain, a web developer and UI/UX designer with a
-                passion for creating beautiful, functional, and user-centered
+                Hi, I'm Abhinandan Jain, a web developer and UI/UX designer with
+                a passion for creating beautiful, functional, and user-centered
                 digital experiences. With 3 years of experience in the field.
               </p>
               <p className="font-medium my-4">
-              I did my Bachelor's of Technology in 
-                Computer Science from Chandigarh Engineering College, CGC Landran. My skills include 
-                proficiency in C++, Data Structures and Algorithms (DSA), and Web Development. 
+                I did my Bachelor's of Technology in Computer Science from
+                Chandigarh Engineering College, CGC Landran. My skills include
+                proficiency in C++, Data Structures and Algorithms (DSA), and
+                Web Development.
               </p>
               <p className="font-medium">
-                I am driven by the desire to work and grow in a dynamic and competitive workplace, 
-                where I can explore cutting-edge technologies, expand my knowledge horizons, and achieve 
-                both personal and organizational objectives. 
-                I have hands-on experience in C++ programming and have earned a 5-star C++ badge 
-                on Hackerrank. In addition, I am adept at web development technologies such as HTML, 
-                CSS, JavaScript, and ReactJS. I possess strong problem-solving skills and a 
-                solid understanding of data structures.
+                I am driven by the desire to work and grow in a dynamic and
+                competitive workplace, where I can explore cutting-edge
+                technologies, expand my knowledge horizons, and achieve both
+                personal and organizational objectives. I have hands-on
+                experience in C++ programming and have earned a 5-star C++ badge
+                on Hackerrank. In addition, I am adept at web development
+                technologies such as HTML, CSS, JavaScript, and ReactJS. I
+                possess strong problem-solving skills and a solid understanding
+                of data structures.
               </p>
             </div>
 
