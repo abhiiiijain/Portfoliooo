@@ -81,7 +81,21 @@ const Experience = () => {
             // companyLink="/"
             time="Jan 2023 - Jun 2023"
             address="Mohali, INDIA"
-            work=""
+            work={
+              <li>
+                • React.js, JavaScript, with hands-on experience in building
+                interactive and responsive web applications.
+                <br />
+                • Developed a project using React.js to create a front-end web
+                application that solved a specific problem.
+                <br />
+                • Implemented Redux, Axios, and React Router to improve user
+                experience by 10% based on the usability tests.
+                <br />• Developed a new application with improved performance
+                and scalability by implementing best practices learned while
+                developing.
+              </li>
+            }
             tech="ReactJs, MongoBD"
           />
           <Details
