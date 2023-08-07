@@ -81,7 +81,24 @@ const Experience = () => {
             // companyLink="/"
             time="Jan 2023 - Jun 2023"
             address="Mohali, INDIA"
-            work=""
+            work={
+              <li>
+                • I have extensive experience in building interactive and
+                responsive web applications using React.js and JavaScript. I
+                successfully developed a front-end web application using
+                React.js that effectively addressed a specific problem.
+                <br />
+                • To enhance the user experience, I integrated Redux, Axios, and
+                React Router into the project, resulting in a remarkable 10%
+                improvement in usability based on thorough usability tests.
+                <br />
+                • Additionally, I created a new application with a focus on
+                optimizing performance and scalability. By incorporating the
+                best practices I learned during development, the application
+                achieved higher efficiency and better scalability.
+                <br />
+              </li>
+            }
             tech="ReactJs, MongoBD"
           />
           <Details
