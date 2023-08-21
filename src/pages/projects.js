@@ -241,6 +241,26 @@ const projects = () => {
                 tech="HTML, CSS"
               />
             </div>
+            <div className="col-span-6 sm:col-span-12">
+              <Project
+                title="HTML Portfolio"
+                img={portfolio}
+                link="https://abhiiiijain.github.io/Portfolio/"
+                github="https://github.com/abhiiiijain/Portfolio/"
+                type="Portfolio Website"
+                tech="HTML, CSS, JavaScript"
+              />
+            </div>
+            <div className="col-span-6 sm:col-span-12">
+              <Project
+                title="Samadhan - Website for Notes"
+                img={samadhan}
+                link="https://abhiiiijain.github.io/Samadhan/"
+                github="https://github.com/abhiiiijain/Samadhan/"
+                type="Website"
+                tech="HTML, CSS"
+              />
+            </div>
           </div>
         </Layout>
       </main>
