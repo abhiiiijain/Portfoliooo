@@ -48,12 +48,14 @@ const Skills = () => {
         <Skill name="CSS" x="-5vw" y="-10vw" />
         <Skill name="JavaScript" x="20vw" y="6vw" />
         <Skill name="Adobe Photoshop" x="0vw" y="12vw" />
-        <Skill name="NextJs" x="-20vw" y="-15vw" />
+        <Skill name="NextJS" x="-20vw" y="-15vw" />
+        <Skill name="Mongo DB" x="-17vw" y="-5vw" />
         <Skill name="ReactJS" x="15vw" y="-12vw" />
         <Skill name="Web Design" x="32vw" y="-5vw" />
         <Skill name="Figma" x="0vw" y="-20vw" />
         <Skill name="Firebase" x="-25vw" y="18vw" />
         <Skill name="Tailwind CSS" x="18vw" y="18vw" />
+        <Skill name="ExpressJS" x="-18vw" y="15vw" />
       </div>
     </>
   );

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
+import expense from "../../public/images/projects/expense.png";
 import arkitektur from "../../public/images/projects/arkitektur.png";
 import woodcase from "../../public/images/projects/woodcase.png";
 import samadhan from "../../public/images/projects/samadhan.png";
@@ -179,6 +180,17 @@ const projects = () => {
           />
 
           <div className="grid grif-col-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            <div className="col-span-12">
+              <FeaturedProject
+                title="Expense Tracker"
+                img={expense}
+                summary="This Expense Tracker app helps users manage their finances by tracking their spending, categorizing expenses, and providing insights into their financial habits. The backend of this app is developed using Node.js and Express, offering a robust and scalable solution."
+                link="https://expenseapp-psi.vercel.app"
+                github="https://github.com/abhiiiijain/Expense_App_Frontend"
+                type="Web App"
+                tech="ReactJS, MongoDB, ExpressJS, NodeJS"
+              />
+            </div>
             <div className="col-span-12">
               <FeaturedProject
                 title="Arkitektur - An Interior Design Website"

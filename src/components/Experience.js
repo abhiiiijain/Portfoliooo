@@ -76,11 +76,11 @@ const Experience = () => {
         />
         <ul className=" w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            position="MERN Stack Intern"
+            position="Software Engineer"
             company="A2it Solution Pvt. Ltd."
             // companyLink="/"
-            time="Jan 2023 - Jun 2023"
-            address="Mohali, INDIA"
+            time="Sep 2023 - Present"
+            address="Gurugram, INDIA"
             work={
               <li>
                 • I have extensive experience in building interactive and
@@ -88,6 +88,18 @@ const Experience = () => {
                 successfully developed a front-end web application using
                 React.js that effectively addressed a specific problem.
                 <br />
+              </li>
+            }
+            tech="ReactJs, NodeJs, ExpressJs, MongoBD, Tailwind CSS"
+          />
+          <Details
+            position="MERN Stack Intern"
+            company="A2it Solution Pvt. Ltd."
+            // companyLink="/"
+            time="Jan 2023 - Jun 2023"
+            address="Mohali, INDIA"
+            work={
+              <li>
                 • To enhance the user experience, I integrated Redux, Axios, and
                 React Router into the project, resulting in a remarkable 10%
                 improvement in usability based on thorough usability tests.
@@ -99,7 +111,7 @@ const Experience = () => {
                 <br />
               </li>
             }
-            tech="ReactJs, MongoBD"
+            tech="ReactJs, NodeJs, ExpressJs, MongoBD"
           />
           <Details
             position="Software Engineer"
@@ -108,7 +120,7 @@ const Experience = () => {
             time="Jun 2022 - Sep 2022"
             address="Mohali, INDIA"
             work="• Used multiple libraries like React, Redux, AntDesign and Tailwind to build a scalable banking project."
-            tech="ReactJs"
+            tech="ReactJs, Redux, Tailwind CSS"
           />
           <Details
             position="ReactJs Training"
@@ -131,7 +143,7 @@ const Experience = () => {
                 developing.
               </li>
             }
-            tech="React, MongoDb"
+            tech="ReactJs, MongoDb"
           />
           <Details
             position="PHP Training"

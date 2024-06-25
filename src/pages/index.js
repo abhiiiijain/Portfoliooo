@@ -43,13 +43,14 @@ export default function Home() {
                 "
               />
               <p className="my-4 text-base font-medium md:text-sm sm:text-xs ">
-                As a skilled Frontend developer, I am dedicated to turning ideas
-                into innovative web applications. Explore my latest projects,
-                showcasing my expertise in React.js and web development.
+                As a skilled FullStack Web Developer, I am dedicated to turning
+                ideas into innovative web applications. Explore my latest
+                projects, showcasing my expertise in React.js, Node.js and web
+                development.
               </p>
               <div className="flex items-center self-start mt-2 lg:self-center">
                 <Link
-                  href="/Abhinandan's Resume.pdf"
+                  href="/Abhinandan_Jain.pdf"
                   target={"_blank"}
                   className="flex items-center bg-dark text-light p-2.5 px-6
                 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark

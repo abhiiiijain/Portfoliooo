@@ -61,12 +61,12 @@ const about = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I'm Abhinandan Jain, a web developer and UI/UX designer with
+                Hi, I am Abhinandan Jain, a Full Stack Web Developer and UI/UX designer with
                 a passion for creating beautiful, functional, and user-centered
-                digital experiences. With 3 years of experience in the field.
+                digital experiences. With 2 years of experience in the field.
               </p>
               <p className="font-medium my-4">
-                I did my Bachelor's of Technology in Computer Science from
+                I did my Bachelors of Technology in Computer Science from
                 Chandigarh Engineering College, CGC Landran. My skills include
                 proficiency in C++, Data Structures and Algorithms (DSA), and
                 Web Development.
@@ -109,7 +109,7 @@ const about = () => {
                 className="flex flex-col items-end justify-center xl:items-center
               ">
                 <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
-                  <AnimatedNumbers value={15} />+
+                  <AnimatedNumbers value={20} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 
@@ -137,7 +137,7 @@ const about = () => {
                 className="flex flex-col items-end justify-center xl:items-center
               ">
                 <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
-                  <AnimatedNumbers value={3} />+
+                  <AnimatedNumbers value={2} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 dark:text-light/75
