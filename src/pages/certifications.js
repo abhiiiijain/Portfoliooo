@@ -254,13 +254,13 @@ const certifications = () => {
               link="https://www.hackerrank.com/certificates/18fb8a9f4368/"
               img={CertHrReact}
             />
-            {/* <Certification
+            <Certification
               title="Introduction to Python"
               company="Coding Ninjas"
               date="Sep 27, 2020"
               link="https://ninjasfiles.s3.amazonaws.com/certificate10579455ae927e27c9741d63d3f039c4a7f566e.pdf"
               img={CertCnPython}
-            /> */}
+            />
             <Certification
               title="C (Advanced)"
               company="HackerRank"
