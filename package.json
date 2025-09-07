@@ -6,10 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "cross-env GITHUB_PAGES=true next export",
-    "build:gh": "cross-env GITHUB_PAGES=true next build && cross-env GITHUB_PAGES=true next export",
-    "predeploy": "npm run build:gh",
-    "deploy": "gh-pages -d out",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -24,7 +22,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "cross-env": "^7.0.3",
     "gh-pages": "^5.0.0",
     "postcss": "^8.4.26",
     "tailwindcss": "^3.3.3"
