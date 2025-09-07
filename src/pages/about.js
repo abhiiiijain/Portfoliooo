@@ -2,7 +2,7 @@ import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import profilePic from "../../public/images/profile/dpabhi.jpg";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "@/components/Skills";
@@ -31,10 +31,35 @@ const AnimatedNumbers = ({ value }) => {
     });
   }, [springValue, value]);
 
-  return <span ref={ref}></span>;
+  return (
+    <span ref={ref} suppressHydrationWarning>
+      0
+    </span>
+  );
 };
 
+const calculateExperienceYears = (startDate) => {
+  const now = new Date();
+  const start = new Date(startDate);
+  let years = now.getFullYear() - start.getFullYear();
+  const monthDiff = now.getMonth() - start.getMonth();
+  const dayDiff = now.getDate() - start.getDate();
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    years -= 1;
+  }
+  return Math.max(0, years);
+};
+
+
 const about = () => {
+  const [experienceYears, setExperienceYears] = useState(0);
+
+  useEffect(() => {
+    // Update this start date if your professional experience start changes
+    const years = calculateExperienceYears("2023-09-04");
+    setExperienceYears(years);
+  }, []);
+
   return (
     <>
       <Head>
@@ -61,26 +86,30 @@ const about = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I am Abhinandan Jain, a Full Stack Web Developer and UI/UX designer with
-                a passion for creating beautiful, functional, and user-centered
-                digital experiences. With 2 years of experience in the field.
+                Hi, I am <b>Abhinandan Jain</b>, an innovative <b>Software Engineer</b>
+                with hands-on experience in building scalable and responsive web
+                applications using the <b>MERN Stack (MongoDB, Express, ReactJS, Node.js)
+                  and MySQL</b>. Over the past year, I have worked on multiple projects in
+                professional environments, contributing to the development of dynamic
+                and user-friendly digital solutions.
               </p>
               <p className="font-medium my-4">
-                I did my Bachelors of Technology in Computer Science from
-                Chandigarh Engineering College, CGC Landran. My skills include
-                proficiency in C++, Data Structures and Algorithms (DSA), and
-                Web Development.
+                I hold a <b>Bachelor of Technology in Computer Science</b>
+                from <b>Chandigarh Engineering College, CGC Landran</b>
+                , where I built a strong foundation in <b>Operating Systems, Data Structures,
+                  Algorithms, Databases, and Networking</b>.
+              </p>
+              <p className="font-medium my-4">
+                Throughout my career journey, I have gained industry experience working with
+                <b>Twigz Technologies Pvt. Ltd., A2it Online, and Connecting Points Tech</b>,
+                where I developed and optimized web applications, enhanced UI/UX,
+                and collaborated in Agile teams to deliver impactful projects.
               </p>
               <p className="font-medium">
-                I am driven by the desire to work and grow in a dynamic and
-                competitive workplace, where I can explore cutting-edge
-                technologies, expand my knowledge horizons, and achieve both
-                personal and organizational objectives. I have hands-on
-                experience in C++ programming and have earned a 5-star C++ badge
-                on Hackerrank. In addition, I am adept at web development
-                technologies such as HTML, CSS, JavaScript, and ReactJS. I
-                possess strong problem-solving skills and a solid understanding
-                of data structures.
+                My technical expertise includes <b>C++, C, HTML, CSS, JavaScript, ReactJS,
+                  Node.js, Express, MySQL, and MongoDB</b>. I have also worked
+                extensively with <b>Redux, Tailwind CSS, Ant Design</b>, and testing
+                practices to ensure robust application performance.
               </p>
             </div>
 
@@ -137,7 +166,7 @@ const about = () => {
                 className="flex flex-col items-end justify-center xl:items-center
               ">
                 <span className="iniline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl ">
-                  <AnimatedNumbers value={2} />+
+                  <AnimatedNumbers value={experienceYears} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 dark:text-light/75

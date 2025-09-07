@@ -59,17 +59,19 @@ const Education = () => {
             type="B.Tech"
             trade="| Computer Science"
             time="2019 - 2023"
-            place="Chandigarh Engineering College"
-            info="Relevant courses included Data Structures and Algorithms, Operating Systems, 
-            Web Development, Networking, Databases, Object Oriented Programming,
-            Computer Systems Engineering."
+            place="Chandigarh Engineering College, Landran"
+            info="
+            Relevant coursework: Data Structures and Algorithms, Operating Systems, 
+            Web Development, Networking, Databases, Object-Oriented Programming, 
+            and Computer Systems Engineering."
           />
           <Details
             type="Senior Secondary Education"
             trade="| Non-Medical"
             time="2017 - 2018"
-            place="Jawahar Navodaya Vidyalaya"
-            info=""
+            place="Jawahar Navodaya Vidyalaya, Fatehabad"
+            info="
+            Relevant coursework: Physics, Chemistry, Mathematics, and Computer Science."
           />
           <Details
             type="Secondary Education"

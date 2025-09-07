@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const quote = {
@@ -29,6 +29,23 @@ const singleWord = {
 };
 
 const AnimatedText = ({ text, className = "" }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
+  if (!isMounted) {
+    return (
+      <div
+        className="w-full mx-auto py-2 flex item-center justify-center text-center
+    overflow-hidden dark:text-light sm:py-0 
+    ">
+        <h1
+          className={`inline-block w-full text-dark font-bold capitalize text-8xl
+        dark:text-light
+        ${className}`}>
+          {text}
+        </h1>
+      </div>
+    );
+  }
   return (
     <div
       className="w-full mx-auto py-2 flex item-center justify-center text-center

@@ -64,7 +64,7 @@ const Experience = () => {
         className="font-bold text-8xl mb-32 w-full text-center
       md:text-6xl xs:text-4xl md:mb-16
       ">
-        Trainings and Internships
+        Experience and Trainings
       </h2>
 
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
@@ -77,18 +77,23 @@ const Experience = () => {
         <ul className=" w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
             position="Software Engineer"
-            company="A2it Solution Pvt. Ltd."
+            company="Twigz Technologies Pvt. Ltd."
             // companyLink="/"
             time="Sep 2023 - Present"
             address="Gurugram, INDIA"
             work={
               <li>
-                • I have extensive experience in building interactive and
-                responsive web applications using React.js and JavaScript. I
-                successfully developed a front-end web application using
-                React.js that effectively addressed a specific problem.
+                • Built responsive and interactive web applications using React.js, ensuring smooth performance across devices.
                 <br />
+                • Developed and maintained reusable front-end components to improve scalability and maintainability.
+                <br />
+                • Collaborated with cross-functional teams and followed Agile methodologies to deliver features on time.
+                <br />
+                • Managed source code with GitHub, maintaining a clean and well-structured repository for collaborative work.
+                <br />
+                • Wrote efficient, testable code and applied thorough testing practices to improve usability and stability.
               </li>
+
             }
             tech="ReactJs, NodeJs, ExpressJs, MongoBD, Tailwind CSS"
           />
@@ -100,15 +105,13 @@ const Experience = () => {
             address="Mohali, INDIA"
             work={
               <li>
-                • To enhance the user experience, I integrated Redux, Axios, and
-                React Router into the project, resulting in a remarkable 10%
-                improvement in usability based on thorough usability tests.
+                • Developed full-stack applications using the MERN stack, with a focus on performance and scalability.
                 <br />
-                • Additionally, I created a new application with a focus on
-                optimizing performance and scalability. By incorporating the
-                best practices I learned during development, the application
-                achieved higher efficiency and better scalability.
+                • Integrated Axios for data handling and React Router for seamless navigation across the application.
                 <br />
+                • Conducted comprehensive testing and delivered iterative enhancements, improving usability by 10%.
+                <br />
+                • Designed and deployed new applications optimized for speed, reliability, and user satisfaction.
               </li>
             }
             tech="ReactJs, NodeJs, ExpressJs, MongoBD"
@@ -119,7 +122,15 @@ const Experience = () => {
             // companyLink="/"
             time="Jun 2022 - Sep 2022"
             address="Mohali, INDIA"
-            work="• Used multiple libraries like React, Redux, AntDesign and Tailwind to build a scalable banking project."
+            work={
+              <li>
+                • Contributed to internal projects by developing front-end features with React and Redux.
+                <br />
+                • Enhanced the user interface using Ant Design, improving consistency and accessibility.
+                <br />
+                • Applied Tailwind CSS for efficient styling and faster development of responsive layouts.
+              </li>
+            }
             tech="ReactJs, Redux, Tailwind CSS"
           />
           <Details
@@ -130,17 +141,13 @@ const Experience = () => {
             address="Mohali, INDIA"
             work={
               <li>
-                • React.js, JavaScript, with hands-on experience in building
-                interactive and responsive web applications.
+                • Built interactive and responsive web applications using React.js and JavaScript.
                 <br />
-                • Developed a project using React.js to create a front-end web
-                application that solved a specific problem.
+                • Designed and developed a front-end application in React.js to solve a specific user problem.
                 <br />
-                • Implemented Redux, Axios, and React Router to improve user
-                experience by 10% based on the usability tests.
-                <br />• Developed a new application with improved performance
-                and scalability by implementing best practices learned while
-                developing.
+                • Implemented Redux, Axios, and React Router, improving user experience by 10% through usability testing.
+                <br />
+                • Created a new application with enhanced performance and scalability by applying industry best practices.
               </li>
             }
             tech="ReactJs, MongoDb"
@@ -149,9 +156,19 @@ const Experience = () => {
             position="PHP Training"
             company="Chandiagrh Engineering College "
             // companyLink="/"
-            time="2022-Present"
+            time="April 2020 - June 2020"
             address="Landran, INIDA"
-            work="• Mastered PHP and built an ecommerce platform like amazon which provide features like cart, search."
+            work={
+              <li>
+                • Mastered PHP and built an ecommerce platform like amazon which provide features like cart, search.
+                <br />
+                • Developed a user-friendly ecommerce platform with features like cart, search, and payment integration.
+                <br />
+                • Implemented PHP for server-side logic and MySQL for database management.
+                <br />
+                • Designed responsive UI using HTML and CSS to enhance user experience.
+              </li>
+            }
             tech="PHP, MySQL, HTML, CSS"
           />
         </ul>
