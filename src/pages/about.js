@@ -86,7 +86,7 @@ const About = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I am <b>Abhinandan Jain</b>, an innovative <b>Software Engineer</b>
+                Hi, I am <b>Abhinandan Jain</b>, an innovative <b>Software Engineer </b>
                 with hands-on experience in building scalable and responsive web
                 applications using the <b>MERN Stack (MongoDB, Express, ReactJS, Node.js)
                   and MySQL</b>. Over the past year, I have worked on multiple projects in
@@ -94,14 +94,14 @@ const About = () => {
                 and user-friendly digital solutions.
               </p>
               <p className="font-medium my-4">
-                I hold a <b>Bachelor of Technology in Computer Science</b>
+                I hold a <b>Bachelor of Technology in Computer Science </b>
                 from <b>Chandigarh Engineering College, CGC Landran</b>
                 , where I built a strong foundation in <b>Operating Systems, Data Structures,
                   Algorithms, Databases, and Networking</b>.
               </p>
               <p className="font-medium my-4">
                 Throughout my career journey, I have gained industry experience working with
-                <b>Twigz Technologies Pvt. Ltd., A2it Online, and Connecting Points Tech</b>,
+                <b> Twigz Technologies Pvt. Ltd., A2it Online, and Connecting Points Tech</b>,
                 where I developed and optimized web applications, enhanced UI/UX,
                 and collaborated in Agile teams to deliver impactful projects.
               </p>
