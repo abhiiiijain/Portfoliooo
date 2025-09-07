@@ -137,7 +137,7 @@ const FearutedCertification = ({ img, title, date, company, link }) => {
   );
 };
 
-const certifications = () => {
+const Certifications = () => {
   return (
     <>
       <Head>
@@ -303,4 +303,4 @@ const certifications = () => {
   );
 };
 
-export default certifications;
+export default Certifications;

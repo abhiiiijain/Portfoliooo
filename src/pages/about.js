@@ -51,7 +51,7 @@ const calculateExperienceYears = (startDate) => {
 };
 
 
-const about = () => {
+const About = () => {
   const [experienceYears, setExperienceYears] = useState(0);
 
   useEffect(() => {
@@ -186,4 +186,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;

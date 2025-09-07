@@ -10,8 +10,8 @@ import expense from "../../public/images/projects/expense.png";
 import arkitektur from "../../public/images/projects/arkitektur.png";
 import woodcase from "../../public/images/projects/woodcase.png";
 import samadhan from "../../public/images/projects/samadhan.png";
-import portfolioo from "../../public/images/projects/Portfolioo.png";
-import portfolio from "../../public/images/projects/Portfolio.png";
+import portfolioo from "../../public/images/projects/portfolioo.png";
+import portfolio from "../../public/images/projects/portfolio.png";
 import sars from "../../public/images/projects/sars.png";
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -163,7 +163,7 @@ const Project = ({ title, type, img, link, github, tech }) => {
   );
 };
 
-const projects = () => {
+const Projects = () => {
   return (
     <>
       <Head>
@@ -260,4 +260,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default Projects;
