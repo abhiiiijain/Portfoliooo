@@ -185,7 +185,7 @@ const Projects = () => {
                 title="Expense Tracker"
                 img={expense}
                 summary="This Expense Tracker app helps users manage their finances by tracking their spending, categorizing expenses, and providing insights into their financial habits. The backend of this app is developed using Node.js and Express, offering a robust and scalable solution."
-                link="https://expenseapp-psi.vercel.app"
+                link="https://expense-app-frontend-flax.vercel.app/login"
                 github="https://github.com/abhiiiijain/Expense_App_Frontend"
                 type="Web App"
                 tech="ReactJS, MongoDB, ExpressJS, NodeJS"
