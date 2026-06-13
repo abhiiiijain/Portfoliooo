@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-heading: "Orbitron", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply font-body bg-light text-dark dark:bg-dark dark:text-light;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  h1 {
+    @apply text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  h5 {
+    @apply text-base;
+  }
+
+  h6 {
+    @apply text-sm;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-dark dark:text-light;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full p-3 rounded-lg border-2 border-dark/15 bg-light
+      dark:bg-dark/80 dark:border-light/15 dark:text-light
+      focus:outline-none focus:border-primary dark:focus:border-primaryDark
+      transition-colors placeholder:text-dark/40 dark:placeholder:text-light/40;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-dark text-light px-6 py-3
+      rounded-lg font-semibold border-2 border-dark
+      hover:bg-light hover:text-dark
+      dark:bg-light dark:text-dark dark:border-light
+      hover:dark:bg-dark hover:dark:text-light
+      transition-colors disabled:opacity-60 disabled:pointer-events-none;
+  }
+
+  .animate-fade-up {
+    opacity: 0;
+    animation: fade-up 1s ease forwards;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

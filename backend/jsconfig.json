@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@portfoliooo/shared/*": ["../shared/*"]
+    }
+  }
+}
