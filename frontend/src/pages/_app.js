@@ -1,3 +1,4 @@
+import BackendKeepAlive from "@/components/BackendKeepAlive";
 import Footer from "@/components/Footer";
 import DynamicFonts from "@/components/DynamicFonts";
 import NavBar from "@/components/NavBar";
@@ -57,6 +58,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <MotionConfig initial={false}>
+      <BackendKeepAlive />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
