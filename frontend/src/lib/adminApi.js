@@ -67,30 +67,16 @@ export async function adminLogout() {
 }
 
 export async function adminUploadImage(file, folder = "portfoliooo") {
-  const token = getAdminToken();
   const formData = new FormData();
   formData.append("file", file);
   formData.append("folder", folder);
 
-  const headers = {};
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-
-  const response = await fetch(resolveApiUrl("/api/admin/upload"), {
+  const response = await adminFetch("/api/admin/upload", {
     method: "POST",
-    headers,
     body: formData,
   });
 
   const data = await response.json().catch(() => ({}));
-
-  if (response.status === 401) {
-    clearAdminToken();
-    if (typeof window !== "undefined" && !window.location.pathname.startsWith("/admin/login")) {
-      window.location.href = "/admin/login";
-    }
-  }
 
   if (!response.ok) {
     throw new Error(data.error || "Upload failed");

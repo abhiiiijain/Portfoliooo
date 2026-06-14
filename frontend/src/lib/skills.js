@@ -1,5 +1,7 @@
 import { DEFAULT_SKILLS_TITLE, buildFixedCategories } from "@portfoliooo/shared/skills";
 
+export { buildFixedCategories };
+
 export function createEmptySkills() {
   return {
     title: DEFAULT_SKILLS_TITLE,

@@ -5,7 +5,7 @@ export function signAdminToken() {
   return jwt.sign({ role: "admin" }, process.env.JWT_SECRET, { expiresIn: "7d" });
 }
 
-export function verifyAdminToken(token) {
+function verifyAdminToken(token) {
   if (!token || !process.env.JWT_SECRET) return null;
   try {
     return jwt.verify(token, process.env.JWT_SECRET);
@@ -14,7 +14,7 @@ export function verifyAdminToken(token) {
   }
 }
 
-export function getTokenFromRequest(req) {
+function getTokenFromRequest(req) {
   const authHeader = req.headers.authorization;
   if (authHeader?.startsWith("Bearer ")) {
     return authHeader.slice(7);

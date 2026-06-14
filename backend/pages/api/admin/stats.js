@@ -1,6 +1,7 @@
 import dbConnect from "../../../lib/mongodb";
 import ContactInquiry from "../../../models/ContactInquiry";
 import { requireAdmin } from "../../../lib/auth";
+import { toApiDoc } from "../../../lib/apiDoc";
 
 export default async function handler(req, res) {
   if (!requireAdmin(req, res)) return;
@@ -15,13 +16,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       totalLeads,
-      recentLeads: recentLeads.map((lead) => ({
-        id: lead._id.toString(),
-        name: lead.name,
-        email: lead.email,
-        phone: lead.phone,
-        submittedAt: lead.submittedAt,
-      })),
+      recentLeads: recentLeads.map(toApiDoc),
     });
   } catch (error) {
     console.error("Dashboard stats error:", error);

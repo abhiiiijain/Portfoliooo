@@ -1,7 +1,7 @@
 import fs from "fs/promises";
+import os from "os";
 import formidable from "formidable";
 import { requireAdmin } from "../../../lib/auth";
-import { setCorsHeaders } from "../../../lib/cors";
 import { isCloudinaryConfigured, uploadImageFromPath } from "../../../lib/cloudinary";
 
 export const config = {
@@ -21,7 +21,7 @@ const ALLOWED_FOLDERS = new Set([
 function parseForm(req) {
   return new Promise((resolve, reject) => {
     const form = formidable({
-      uploadDir: process.env.VERCEL ? "/tmp" : undefined,
+      uploadDir: os.tmpdir(),
       maxFileSize: MAX_BYTES,
       filter: ({ mimetype }) => Boolean(mimetype?.startsWith("image/")),
     });
@@ -47,7 +47,6 @@ function parseForm(req) {
 }
 
 export default async function handler(req, res) {
-  if (setCorsHeaders(req, res)) return;
   if (!requireAdmin(req, res)) return;
 
   if (req.method !== "POST") {

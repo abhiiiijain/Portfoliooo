@@ -1,4 +1,4 @@
-export const pageEditorSections = {
+const pageEditorSections = {
   home: {
     title: "Home page",
     subtitle: "Hero, about intro, featured sections, and SEO",

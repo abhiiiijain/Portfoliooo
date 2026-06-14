@@ -1,6 +1,8 @@
+import { stripDigits } from "./phone";
+
 export function parseWhatsAppNumber(value) {
   if (!value?.trim()) return "";
-  return value.replace(/\D/g, "");
+  return stripDigits(value);
 }
 
 export function toWhatsAppUrl(value) {

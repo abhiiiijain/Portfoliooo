@@ -3,7 +3,7 @@ const path = require("path");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Include ../shared in serverless bundles (monorepo on Vercel).
+  // Include ../shared in serverless bundles (monorepo).
   outputFileTracingRoot: path.join(__dirname, ".."),
   async redirects() {
     return [

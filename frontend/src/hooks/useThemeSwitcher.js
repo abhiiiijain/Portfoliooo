@@ -42,5 +42,5 @@ export default function useThemeSwitcher() {
     setMode(mode === "dark" ? "light" : "dark");
   }, [mode, setMode]);
 
-  return { mode, setMode, toggleMode, ready };
+  return { mode, toggleMode, ready };
 }

@@ -9,6 +9,8 @@ function parseAllowedOrigins() {
   return [...new Set([...(fromFrontend ? [fromFrontend] : []), ...fromList])];
 }
 
+const allowedOrigins = parseAllowedOrigins();
+
 function isVercelPreviewOrigin(origin) {
   if (process.env.ALLOW_VERCEL_PREVIEWS !== "true") return false;
 
@@ -24,8 +26,7 @@ function resolveAllowedOrigin(req) {
   const requestOrigin = req.headers.origin;
   if (!requestOrigin) return null;
 
-  const allowed = parseAllowedOrigins();
-  if (allowed.includes(requestOrigin)) return requestOrigin;
+  if (allowedOrigins.includes(requestOrigin)) return requestOrigin;
   if (isVercelPreviewOrigin(requestOrigin)) return requestOrigin;
 
   return null;
@@ -38,7 +39,7 @@ export function setCorsHeaders(req, res) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   } else if (req.headers.origin) {
     console.warn("CORS blocked origin:", req.headers.origin);
-  } else if (!parseAllowedOrigins().length) {
+  } else if (!allowedOrigins.length) {
     console.warn("FRONTEND_URL / ALLOWED_ORIGINS is not set — CORS headers skipped");
   }
 

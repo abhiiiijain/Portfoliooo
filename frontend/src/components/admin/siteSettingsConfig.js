@@ -9,7 +9,7 @@ export function textToParagraphs(text) {
     .filter(Boolean);
 }
 
-export const generalFields = [
+const generalFields = [
   { key: "name", label: "Full name" },
   { key: "brand", label: "Brand name" },
   { key: "logoInitials", label: "Logo initials" },

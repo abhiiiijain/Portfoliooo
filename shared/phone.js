@@ -32,9 +32,17 @@ export const COUNTRY_DIAL_CODES = [
   { code: "+64", label: "New Zealand (+64)" },
 ];
 
+export function stripDigits(value) {
+  return value?.replace(/\D/g, "") || "";
+}
+
+function isValidDigitCount(digits) {
+  return digits.length >= 10 && digits.length <= 15;
+}
+
 export function formatPhoneNumber(countryCode, localNumber) {
-  const codeDigits = countryCode?.replace(/\D/g, "") || "";
-  const localDigits = localNumber?.replace(/\D/g, "") || "";
+  const codeDigits = stripDigits(countryCode);
+  const localDigits = stripDigits(localNumber);
   if (!codeDigits || !localDigits) return "";
   return `+${codeDigits}${localDigits}`;
 }
@@ -42,13 +50,11 @@ export function formatPhoneNumber(countryCode, localNumber) {
 export function isValidPhoneNumber(countryCode, localNumber) {
   const formatted = formatPhoneNumber(countryCode, localNumber);
   if (!formatted) return false;
-  const digits = formatted.slice(1);
-  return digits.length >= 10 && digits.length <= 15;
+  return isValidDigitCount(formatted.slice(1));
 }
 
 export function isValidFormattedPhone(phone) {
   const trimmed = phone?.trim();
   if (!trimmed?.startsWith("+")) return false;
-  const digits = trimmed.slice(1).replace(/\D/g, "");
-  return digits.length >= 10 && digits.length <= 15;
+  return isValidDigitCount(stripDigits(trimmed.slice(1)));
 }

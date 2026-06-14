@@ -1,6 +1,4 @@
-import BackendKeepAlive from "@/components/BackendKeepAlive";
-import Footer from "@/components/Footer";
-import DynamicFonts from "@/components/DynamicFonts";
+import Footer from "@/components/Footer";import DynamicFonts from "@/components/DynamicFonts";
 import NavBar from "@/components/NavBar";
 import AdminGuard from "@/components/admin/AdminGuard";
 import { PortfolioProvider, usePortfolio } from "@/context/PortfolioContext";
@@ -41,9 +39,7 @@ export default function App({ Component, pageProps, initialContent }) {
 
   return (
     <MotionConfig initial={false}>
-      <BackendKeepAlive />
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <Head>        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {isAdminRoute ? (

@@ -1,4 +1,5 @@
 import { languageColor } from "@portfoliooo/shared/github";
+import { toGitHubUrl } from "@portfoliooo/shared/social";
 
 function githubHeaders() {
   const headers = {
@@ -129,7 +130,7 @@ function mapRestRepos(repos) {
     }));
 }
 
-export async function fetchGitHubProfile(username) {
+async function fetchGitHubProfile(username) {
   const graphUser = await fetchGitHubGraphQL(username);
 
   if (graphUser) {
@@ -139,7 +140,7 @@ export async function fetchGitHubProfile(username) {
 
     return {
       username,
-      url: `https://github.com/${username}`,
+      url: toGitHubUrl(username),
       stats: {
         repos: graphUser.repositories?.totalCount || repoNodes.length,
         linesOfCode,
@@ -158,7 +159,7 @@ export async function fetchGitHubProfile(username) {
 
   return {
     username: user.login,
-    url: user.html_url,
+    url: toGitHubUrl(user.login),
     stats: {
       repos: user.public_repos,
       linesOfCode: Math.round(codeBytes / 50),
@@ -171,6 +172,15 @@ export async function fetchGitHubProfile(username) {
 const PROFILE_CACHE_TTL_MS = 10 * 60 * 1000;
 const profileCache = new Map();
 
+function pruneProfileCache() {
+  const now = Date.now();
+  for (const [key, entry] of profileCache) {
+    if (now - entry.at >= PROFILE_CACHE_TTL_MS) {
+      profileCache.delete(key);
+    }
+  }
+}
+
 export async function fetchGitHubProfileCached(username) {
   const cached = profileCache.get(username);
   if (cached && Date.now() - cached.at < PROFILE_CACHE_TTL_MS) {
@@ -179,6 +189,7 @@ export async function fetchGitHubProfileCached(username) {
 
   const profile = await fetchGitHubProfile(username);
   if (profile) {
+    pruneProfileCache();
     profileCache.set(username, { data: profile, at: Date.now() });
   }
 

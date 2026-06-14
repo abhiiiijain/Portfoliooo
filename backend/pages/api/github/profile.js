@@ -4,10 +4,6 @@ import { setCorsHeaders } from "../../../lib/cors";
 import { fetchGitHubProfileCached } from "../../../lib/github";
 import { parseGitHubUsername } from "@portfoliooo/shared/social";
 
-export const config = {
-  maxDuration: 30,
-};
-
 export default async function handler(req, res) {
   if (setCorsHeaders(req, res)) return;
 
