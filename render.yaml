@@ -10,6 +10,8 @@ services:
     startCommand: npm start
     healthCheckPath: /api/keepalive
     envVars:
+      - key: NODE_ENV
+        value: production
       - key: NODE_VERSION
         value: 20.18.0
       - key: MONGODB_URI
@@ -17,6 +19,8 @@ services:
       - key: MONGODB_DB_NAME
         sync: false
       - key: FRONTEND_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
         sync: false
       - key: ALLOW_VERCEL_PREVIEWS
         value: "true"

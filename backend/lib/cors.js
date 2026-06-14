@@ -1,15 +1,20 @@
-function parseAllowedOrigins() {
-  const fromList = (process.env.ALLOWED_ORIGINS || "")
-    .split(",")
-    .map((value) => value.trim())
-    .filter(Boolean);
-
-  const fromFrontend = process.env.FRONTEND_URL?.trim();
-
-  return [...new Set([...(fromFrontend ? [fromFrontend] : []), ...fromList])];
+function normalizeOrigin(value) {
+  return value?.trim().replace(/\/$/, "") || "";
 }
 
-const allowedOrigins = parseAllowedOrigins();
+function getAllowedOrigins() {
+  const fromFrontend = (process.env.FRONTEND_URL || "")
+    .split(",")
+    .map(normalizeOrigin)
+    .filter(Boolean);
+
+  const fromList = (process.env.ALLOWED_ORIGINS || "")
+    .split(",")
+    .map(normalizeOrigin)
+    .filter(Boolean);
+
+  return [...new Set([...fromFrontend, ...fromList])];
+}
 
 function isVercelPreviewOrigin(origin) {
   if (process.env.ALLOW_VERCEL_PREVIEWS !== "true") return false;
@@ -23,9 +28,10 @@ function isVercelPreviewOrigin(origin) {
 }
 
 function resolveAllowedOrigin(req) {
-  const requestOrigin = req.headers.origin;
+  const requestOrigin = normalizeOrigin(req.headers.origin);
   if (!requestOrigin) return null;
 
+  const allowedOrigins = getAllowedOrigins();
   if (allowedOrigins.includes(requestOrigin)) return requestOrigin;
   if (isVercelPreviewOrigin(requestOrigin)) return requestOrigin;
 
@@ -34,12 +40,13 @@ function resolveAllowedOrigin(req) {
 
 export function setCorsHeaders(req, res) {
   const origin = resolveAllowedOrigin(req);
+  const allowedOrigins = getAllowedOrigins();
 
   if (origin) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   } else if (req.headers.origin) {
     console.warn("CORS blocked origin:", req.headers.origin);
-  } else if (!allowedOrigins.length) {
+  } else if (!allowedOrigins.length && process.env.ALLOW_VERCEL_PREVIEWS !== "true") {
     console.warn("FRONTEND_URL / ALLOWED_ORIGINS is not set — CORS headers skipped");
   }
 
