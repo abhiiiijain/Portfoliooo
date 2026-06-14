@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { isHttpUrl } from "@portfoliooo/shared/url";
 
 const FramerImage = motion(Image);
-
-function isHttpUrl(value) {
-  return typeof value === "string" && /^https?:\/\//i.test(value.trim());
-}
 
 function ProjectEmbed({ url, title, featured = false }) {
   return (

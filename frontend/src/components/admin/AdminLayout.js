@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import { icons, navGroups } from "@/components/admin/adminNav";
 import { adminLogout } from "@/lib/adminApi";
 
+function isNavActive(pathname, href) {
+  if (href === "/admin") return pathname === "/admin";
+  if (href === "/admin/about") return pathname === "/admin/about";
+  return pathname === href;
+}
+
 function SidebarNav({ onNavigate }) {
   const router = useRouter();
 
@@ -16,7 +22,7 @@ function SidebarNav({ onNavigate }) {
           </p>
           <div className="flex flex-col gap-0.5">
             {group.items.map((link) => {
-              const active = router.pathname === link.href;
+              const active = isNavActive(router.pathname, link.href);
               return (
                 <Link
                   key={link.href}

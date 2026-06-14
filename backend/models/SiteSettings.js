@@ -26,6 +26,13 @@ const SiteSettingsSchema = new mongoose.Schema(
       projectsTitle: { type: String, default: "My Projects" },
       showGithubInQuickLinks: { type: Boolean, default: true },
       maxProjects: { type: Number, default: 6 },
+      quickLinks: [
+        {
+          label: String,
+          href: String,
+          external: { type: Boolean, default: false },
+        },
+      ],
     },
     pages: mongoose.Schema.Types.Mixed,
   },

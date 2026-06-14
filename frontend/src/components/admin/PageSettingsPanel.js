@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import ImageUploadField from "@/components/admin/ImageUploadField";
 import AdminSaveBar from "@/components/admin/AdminSaveBar";
+import FooterQuickLinksEditor from "@/components/admin/FooterQuickLinksEditor";
 import {
   AdminFieldGroup,
   AdminPanel,
   AdminPanelBody,
   AdminStickyFooter,
+  btnSecondary,
   formGridClass,
   hintClass,
   inputClass,
@@ -20,9 +22,14 @@ import {
   setNestedValue,
   textToParagraphs,
 } from "@/components/admin/siteSettingsConfig";
-import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
+import {
+  getDefaultFooterQuickLinks,
+  getFooterQuickLinks,
+  normalizeFooterQuickLinks,
+} from "@portfoliooo/shared/site";
 
-function FieldInput({ path, label, type = "text", folder, placeholder, hint, draft, onChange }) {
+function FieldInput({ path, label, type = "text", folder, placeholder, hint, defaultTrue, draft, onChange }) {
   const spanFull = type === "textarea" || type === "image" || type === "checkbox";
 
   if (type === "image") {
@@ -44,7 +51,7 @@ function FieldInput({ path, label, type = "text", folder, placeholder, hint, dra
         <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4 w-full">
           <input
             type="checkbox"
-            checked={getNestedValue(draft, path) === true}
+            checked={defaultTrue ? getNestedValue(draft, path) !== false : getNestedValue(draft, path) === true}
             onChange={(e) => onChange(path, e.target.checked)}
             className="mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-800 text-violet-600 focus:ring-violet-500"
           />
@@ -85,6 +92,7 @@ export default function PageSettingsPanel({ sectionId }) {
   const { site, loading, saveSite } = useSiteSettings();
   const [draft, setDraft] = useState(null);
   const [biographyText, setBiographyText] = useState("");
+  const [quickLinks, setQuickLinks] = useState([]);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -93,6 +101,12 @@ export default function PageSettingsPanel({ sectionId }) {
     setDraft(JSON.parse(JSON.stringify(site)));
     if (sectionId === "about") {
       setBiographyText(paragraphsToText(site.pages?.about?.biography));
+    }
+    if (sectionId === "footer") {
+      const links = Array.isArray(site.footer?.quickLinks)
+        ? normalizeFooterQuickLinks(site.footer.quickLinks)
+        : getFooterQuickLinks(site.footer, site.nav, site.social);
+      setQuickLinks(links.map((link) => ({ ...link })));
     }
   }, [site, sectionId]);
 
@@ -132,7 +146,13 @@ export default function PageSettingsPanel({ sectionId }) {
         payload = setNestedValue(draft, "pages.about.biography", textToParagraphs(biographyText));
       }
       if (sectionId === "footer") {
-        payload = { ...site, footer: draft.footer };
+        payload = {
+          ...site,
+          footer: {
+            ...draft.footer,
+            quickLinks: normalizeFooterQuickLinks(quickLinks),
+          },
+        };
       }
       if (sectionId === "general") {
         payload = { ...site, ...draft };
@@ -180,7 +200,7 @@ export default function PageSettingsPanel({ sectionId }) {
           ))
         ) : (
           <div className={formGridClass}>
-            {pageFields.map(({ path, label, type = "text", folder, placeholder, hint }) => (
+            {pageFields.map(({ path, label, type = "text", folder, placeholder, hint, defaultTrue }) => (
               <FieldInput
                 key={path}
                 path={path}
@@ -189,11 +209,37 @@ export default function PageSettingsPanel({ sectionId }) {
                 folder={folder}
                 placeholder={placeholder}
                 hint={hint}
+                defaultTrue={defaultTrue}
                 draft={draft}
                 onChange={updateDraft}
               />
             ))}
           </div>
+        )}
+
+        {sectionId === "footer" && (
+          <AdminFieldGroup
+            title="Quick links"
+            description="Links shown in the footer Quick Links column. Save to apply your custom list.">
+            <div className="mb-4 flex flex-wrap gap-3">
+              <button
+                type="button"
+                className={btnSecondary}
+                onClick={() => {
+                  setQuickLinks(getDefaultFooterQuickLinks(site.nav, site.social, site.footer));
+                  setSaved(false);
+                }}>
+                Sync from navigation
+              </button>
+            </div>
+            <FooterQuickLinksEditor
+              items={quickLinks}
+              onChange={(next) => {
+                setQuickLinks(next);
+                setSaved(false);
+              }}
+            />
+          </AdminFieldGroup>
         )}
 
         {sectionId === "about" && (

@@ -3,16 +3,16 @@ import { fetchPortfolioContent } from "@/lib/content";
 
 const PortfolioContext = createContext({
   content: null,
-  loading: true,
   error: null,
 });
 
-export function PortfolioProvider({ children }) {
-  const [content, setContent] = useState(null);
-  const [loading, setLoading] = useState(true);
+export function PortfolioProvider({ children, initialContent = null }) {
+  const [content, setContent] = useState(initialContent);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (content) return;
+
     let active = true;
 
     fetchPortfolioContent()
@@ -24,23 +24,17 @@ export function PortfolioProvider({ children }) {
       })
       .catch((fetchError) => {
         if (active) {
-          setContent(null);
           setError(fetchError.message || "Failed to load portfolio content");
-        }
-      })
-      .finally(() => {
-        if (active) {
-          setLoading(false);
         }
       });
 
     return () => {
       active = false;
     };
-  }, []);
+  }, [content]);
 
   return (
-    <PortfolioContext.Provider value={{ content, loading, error }}>
+    <PortfolioContext.Provider value={{ content, error }}>
       {children}
     </PortfolioContext.Provider>
   );

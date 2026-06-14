@@ -8,13 +8,23 @@ export async function persistItemOrder(apiPath, orderedItems) {
     return withOrder;
   }
 
-  await adminFetch(apiPath, {
+  const response = await adminFetch(apiPath, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       items: withOrder.map(({ id, order }) => ({ id, order })),
     }),
   });
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => ({}));
+    throw new Error(data.error || `Failed to save order (${response.status})`);
+  }
+
+  const updated = await response.json().catch(() => null);
+  if (Array.isArray(updated)) {
+    return updated;
+  }
 
   return withOrder;
 }

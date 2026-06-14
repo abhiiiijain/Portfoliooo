@@ -1,37 +1,31 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon, { timelineAxisClass } from "./LiIcon";
-import SectionHeading from "@/components/SectionHeading";
+import { ContentPanel } from "@/components/HomeSection";
+import { BriefcaseIcon } from "@/components/icons/PageIcons";
 import { usePortfolio } from "@/context/PortfolioContext";
 
 function ExperienceBullets({ bullets }) {
   if (!bullets?.length) return null;
 
   return (
-    <ul className="my-3 list-disc pl-5 font-medium w-full md:text-sm space-y-1.5">
+    <ul className="my-3 w-full space-y-1.5 pl-5 text-sm font-medium list-disc md:text-sm">
       {bullets.map((bullet, index) => (
-        <li key={index}>{bullet}</li>
+        <li key={index} className="text-dark/75 dark:text-light/75">
+          {bullet}
+        </li>
       ))}
     </ul>
   );
 }
 
-const Details = ({
-  position,
-  company,
-  companyLink,
-  time,
-  address,
-  bullets,
-  tech,
-}) => {
+const Details = ({ position, company, companyLink, time, address, bullets, tech }) => {
   const ref = useRef(null);
 
   return (
     <li
       ref={ref}
-      className="relative my-8 first:mt-0 last:mb-0 w-full pl-20 md:pl-[4.5rem] xs:pl-14
-      flex flex-col items-start justify-between">
+      className="relative my-8 flex w-full flex-col items-start justify-between pl-20 first:mt-0 last:mb-0 md:pl-[4.5rem] xs:pl-14">
       <LiIcon reference={ref} />
       <motion.div
         initial={false}
@@ -39,29 +33,27 @@ const Details = ({
         viewport={{ once: true }}
         transition={{ duration: 0.5, type: "spring" }}
         className="w-full">
-        <h3 className="capitalize font-bold text-xl sm:text-lg xs:text-base">
+        <h3 className="text-lg font-bold capitalize xs:text-base sm:text-lg">
           {position}&nbsp;
           {companyLink ? (
             <a
               href={companyLink}
               target="_blank"
               rel="noreferrer"
-              className="text-primary dark:text-primaryDark capitalize">
+              className="text-primary capitalize dark:text-primaryDark">
               @{company}
             </a>
           ) : (
-            <span className="text-primary dark:text-primaryDark capitalize">@{company}</span>
+            <span className="text-primary capitalize dark:text-primaryDark">@{company}</span>
           )}
         </h3>
-        <p className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm mt-1">
+        <p className="mt-1 text-sm font-medium capitalize text-dark/75 dark:text-light/75 xs:text-sm">
           {time} | {address}
         </p>
         <ExperienceBullets bullets={bullets} />
-        {tech && (
-          <p className="font-medium w-full md:text-sm text-primary dark:text-primaryDark mt-2">
-            Tech: {tech}
-          </p>
-        )}
+        {tech ? (
+          <p className="mt-2 text-sm font-medium text-primary dark:text-primaryDark">Tech: {tech}</p>
+        ) : null}
       </motion.div>
     </li>
   );
@@ -76,15 +68,16 @@ const Experience = () => {
   });
 
   return (
-    <div className="mt-16 lg:mt-12 mb-16 lg:mb-12 w-full">
-      <SectionHeading title="Experience and Trainings" />
-
-      <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
+    <ContentPanel
+      icon={<BriefcaseIcon className="h-4 w-4 shrink-0" />}
+      title="Experience and Trainings"
+      className="mt-12 lg:mt-10">
+      <div ref={ref} className="relative mx-auto w-[75%] lg:w-[90%] md:w-full">
         <motion.div
           style={{ scaleY: scrollYProgress }}
-          className={`absolute top-0 h-full w-[2px] origin-top bg-dark dark:bg-light z-0 ${timelineAxisClass}`}
+          className={`absolute top-0 z-0 h-full w-[2px] origin-top bg-dark dark:bg-light ${timelineAxisClass}`}
         />
-        <ul className="relative z-[1] w-full flex flex-col items-start justify-between">
+        <ul className="relative z-[1] flex w-full flex-col items-start justify-between">
           {content.experience.map((entry) => (
             <Details
               key={entry.id}
@@ -99,7 +92,7 @@ const Experience = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </ContentPanel>
   );
 };
 

@@ -7,7 +7,7 @@ export const GithubIcon = ({ className, ...rest }) => (
     height="1em"
     viewBox="0 0 512 512"
     {...rest}
-    className={`w-full h-auto ${className}`}>
+    className={className ?? "w-full h-auto"}>
     <path fill="none" d="M0 0h512v512H0z" />
     <path
       fill="currentColor"
@@ -24,7 +24,7 @@ export const LinkedInIcon = ({ className, ...rest }) => (
     height="1em"
     viewBox="0 0 256 256"
     {...rest}
-    className={`w-full h-auto ${className}`}>
+    className={className ?? "w-full h-auto"}>
     <path fill="none" d="M0 0h256v256H0z" />
     <g fill="none">
       <rect width={256} height={256} fill="#fff" rx={60} />
@@ -370,7 +370,7 @@ export const LinkArrow = ({ className, ...rest }) => (
     width={24}
     height={24}
     viewBox="0 0 24 24"
-    className={`w-full h-auto ${className}`}
+    className={className ?? "w-full h-auto"}
     {...rest}>
     <path fill="none" d="M0 0h24v24H0z" />
     <path

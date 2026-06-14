@@ -10,7 +10,7 @@ import {
   inputClass,
   labelClass,
 } from "@/components/admin/adminUi";
-import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 import {
   BODY_FONTS,
   DEFAULT_BODY_FONT,

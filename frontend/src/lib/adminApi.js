@@ -1,4 +1,5 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+import { resolveApiUrl } from "@/lib/apiBaseUrl";
+
 const TOKEN_KEY = "portfolio_admin_token";
 
 export function getAdminToken() {
@@ -14,16 +15,7 @@ export function clearAdminToken() {
   sessionStorage.removeItem(TOKEN_KEY);
 }
 
-function adminApiUrl(path) {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  return `${API_URL}${normalized}`;
-}
-
 export async function adminFetch(path, options = {}) {
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not configured");
-  }
-
   const token = getAdminToken();
   const headers = {
     ...options.headers,
@@ -35,7 +27,7 @@ export async function adminFetch(path, options = {}) {
 
   let response;
   try {
-    response = await fetch(adminApiUrl(path), { ...options, headers });
+    response = await fetch(resolveApiUrl(path), { ...options, headers });
   } catch {
     throw new Error("Unable to reach the API. Is the backend running?");
   }
@@ -51,11 +43,7 @@ export async function adminFetch(path, options = {}) {
 }
 
 export async function adminLogin(password) {
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not configured");
-  }
-
-  const response = await fetch(adminApiUrl("/api/admin/login"), {
+  const response = await fetch(resolveApiUrl("/api/admin/login"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ password }),
@@ -89,7 +77,7 @@ export async function adminUploadImage(file, folder = "portfoliooo") {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  const response = await fetch(adminApiUrl("/api/admin/upload"), {
+  const response = await fetch(resolveApiUrl("/api/admin/upload"), {
     method: "POST",
     headers,
     body: formData,

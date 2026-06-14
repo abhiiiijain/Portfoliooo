@@ -77,6 +77,17 @@
       transition-colors disabled:opacity-60 disabled:pointer-events-none;
   }
 
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-dark/15
+      bg-dark/[0.03] px-5 py-2.5 text-sm font-semibold text-dark transition
+      hover:bg-dark/[0.06]
+      dark:border-light/15 dark:bg-light/[0.03] dark:text-light dark:hover:bg-light/[0.06];
+  }
+
+  .hero-glow {
+    @apply pointer-events-none absolute inset-0 -z-10 overflow-hidden;
+  }
+
   .animate-fade-up {
     opacity: 0;
     animation: fade-up 1s ease forwards;

@@ -19,6 +19,7 @@ export default async function handler(req, res) {
         id: lead._id.toString(),
         name: lead.name,
         email: lead.email,
+        phone: lead.phone,
         submittedAt: lead.submittedAt,
       })),
     });

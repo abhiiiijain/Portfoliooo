@@ -6,6 +6,7 @@ import { GithubIcon, LinkedInIcon, SunIcon, MoonIcon } from "./Icons";
 import { motion } from "framer-motion";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { usePortfolio } from "@/context/PortfolioContext";
+import { DEFAULT_NAV } from "@portfoliooo/shared/site";
 
 const CustomLink = ({ href, title, className = "" }) => {
   if (!href) return null;
@@ -73,7 +74,8 @@ const NavBar = () => {
   const router = useRouter();
   const { mode, toggleMode, ready } = useThemeSwitcher();
   const { content } = usePortfolio();
-  const { nav, social } = content.site;
+  const nav = content?.site?.nav ?? DEFAULT_NAV;
+  const social = content?.site?.social;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -121,62 +123,72 @@ const NavBar = () => {
           ))}
         </nav>
         <nav className="flex items-center justify-center flex-wrap">
-          <motion.a
-            href={social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-6 mx-3"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}>
-            <GithubIcon />
-          </motion.a>
-          <motion.a
-            href={social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-6 mx-3"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}>
-            <LinkedInIcon />
-          </motion.a>
+          {social?.github ? (
+            <motion.a
+              href={social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-6 mx-3"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}>
+              <GithubIcon />
+            </motion.a>
+          ) : null}
+          {social?.linkedin ? (
+            <motion.a
+              href={social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-6 mx-3"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}>
+              <LinkedInIcon />
+            </motion.a>
+          ) : null}
           {ready && <ThemeToggle mode={mode} onToggle={toggleMode} />}
         </nav>
       </div>
 
       {isOpen && (
         <motion.div
-          initial={{ scale: 0, opacity: 0, x: "-50%", y: "-50%" }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="min-w-[70vw] flex flex-col justify-between z-30 items-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark/90 text-light dark:bg-light/90 dark:text-dark rounded-lg backdrop-blur-md py-32">
-          <nav className="flex items-center flex-col justify-center">
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-dark/95 text-light backdrop-blur-md dark:bg-light/95 dark:text-dark lg:hidden">
+          <nav className="flex flex-col items-center justify-center gap-1">
             {nav.map((item) => (
               <CustomMobileLink
                 key={item.href}
                 href={item.href}
                 title={item.title}
+                className="text-2xl font-medium"
                 toggle={() => setIsOpen(false)}
               />
             ))}
           </nav>
-          <nav className="flex items-center justify-center flex-wrap mt-2">
-            <motion.a
-              href={social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-6 mx-3 bg-light rounded-full dark:bg-dark sm:mx-1"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}>
-              <GithubIcon />
-            </motion.a>
-            <motion.a
-              href={social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-6 mx-3 sm:mx-1"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}>
-              <LinkedInIcon />
-            </motion.a>
+          <nav className="mt-8 flex items-center justify-center flex-wrap gap-2">
+            {social?.github ? (
+              <motion.a
+                href={social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-6 mx-3 bg-light rounded-full dark:bg-dark sm:mx-1"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}>
+                <GithubIcon />
+              </motion.a>
+            ) : null}
+            {social?.linkedin ? (
+              <motion.a
+                href={social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-6 mx-3 sm:mx-1"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}>
+                <LinkedInIcon />
+              </motion.a>
+            ) : null}
             {ready && <ThemeToggle mode={mode} onToggle={toggleMode} className="ml-3" />}
           </nav>
         </motion.div>
@@ -184,6 +196,10 @@ const NavBar = () => {
 
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <Logo />
+      </div>
+
+      <div className="absolute right-8 top-1/2 hidden -translate-y-1/2 items-center lg:flex md:right-6 sm:right-4">
+        {ready && <ThemeToggle mode={mode} onToggle={toggleMode} className="ml-0" />}
       </div>
     </header>
   );

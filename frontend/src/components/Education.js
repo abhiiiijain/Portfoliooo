@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon, { timelineAxisClass } from "./LiIcon";
-import SectionHeading from "@/components/SectionHeading";
+import { ContentPanel } from "@/components/HomeSection";
+import { AcademicIcon } from "@/components/icons/PageIcons";
 import { usePortfolio } from "@/context/PortfolioContext";
 
 const Details = ({ type, time, place, info, trade }) => {
@@ -10,8 +11,7 @@ const Details = ({ type, time, place, info, trade }) => {
   return (
     <li
       ref={ref}
-      className="relative my-8 first:mt-0 last:mb-0 w-full pl-20 md:pl-[4.5rem] xs:pl-14
-      flex flex-col items-start justify-between">
+      className="relative my-8 flex w-full flex-col items-start justify-between pl-20 first:mt-0 last:mb-0 md:pl-[4.5rem] xs:pl-14">
       <LiIcon reference={ref} />
       <motion.div
         initial={false}
@@ -19,16 +19,14 @@ const Details = ({ type, time, place, info, trade }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, type: "spring" }}
         className="w-full">
-        <h3 className="capitalize font-bold text-xl sm:text-lg xs:text-base">
+        <h3 className="text-lg font-bold capitalize xs:text-base sm:text-lg">
           {type}&nbsp;
-          {trade && (
-            <span className="text-primary dark:text-primaryDark capitalize">{trade}</span>
-          )}
+          {trade ? <span className="text-primary capitalize dark:text-primaryDark">{trade}</span> : null}
         </h3>
-        <p className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm mt-1">
+        <p className="mt-1 text-sm font-medium capitalize text-dark/75 dark:text-light/75 xs:text-sm">
           {time} | {place}
         </p>
-        {info && <p className="font-medium w-full md:text-sm mt-2">{info}</p>}
+        {info ? <p className="mt-2 w-full text-sm font-medium text-dark/70 dark:text-light/70">{info}</p> : null}
       </motion.div>
     </li>
   );
@@ -43,15 +41,13 @@ const Education = () => {
   });
 
   return (
-    <div className="mt-16 lg:mt-12 w-full">
-      <SectionHeading title="Education" />
-
-      <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
+    <ContentPanel icon={<AcademicIcon className="h-4 w-4 shrink-0" />} title="Education" className="mt-12 lg:mt-10">
+      <div ref={ref} className="relative mx-auto w-[75%] lg:w-[90%] md:w-full">
         <motion.div
           style={{ scaleY: scrollYProgress }}
-          className={`absolute top-0 h-full w-[2px] origin-top bg-dark dark:bg-light z-0 ${timelineAxisClass}`}
+          className={`absolute top-0 z-0 h-full w-[2px] origin-top bg-dark dark:bg-light ${timelineAxisClass}`}
         />
-        <ul className="relative z-[1] w-full flex flex-col items-start justify-between">
+        <ul className="relative z-[1] flex w-full flex-col items-start justify-between">
           {content.education.map((entry) => (
             <Details
               key={entry.id}
@@ -64,7 +60,7 @@ const Education = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </ContentPanel>
   );
 };
 

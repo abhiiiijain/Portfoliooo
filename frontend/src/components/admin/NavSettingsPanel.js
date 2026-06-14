@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AdminSaveBar from "@/components/admin/AdminSaveBar";
 import NavEditor from "@/components/admin/NavEditor";
 import { AdminPanel, AdminPanelBody, AdminStickyFooter } from "@/components/admin/adminUi";
-import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 import { normalizeNav } from "@portfoliooo/shared/site";
 
 export default function NavSettingsPanel({ description }) {

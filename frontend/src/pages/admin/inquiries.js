@@ -27,6 +27,11 @@ export default function AdminInquiriesPage() {
               <div>
                 <p className="font-semibold text-slate-100">{item.name}</p>
                 <p className="text-violet-400 text-sm">{item.email}</p>
+                {item.phone ? (
+                  <a href={`tel:${item.phone}`} className="text-sm text-slate-400 transition hover:text-violet-300">
+                    {item.phone}
+                  </a>
+                ) : null}
               </div>
               {item.subject && (
                 <p className="text-sm text-slate-400">

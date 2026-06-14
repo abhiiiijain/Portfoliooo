@@ -10,7 +10,7 @@ export const config = {
   },
 };
 
-const MAX_BYTES = 8 * 1024 * 1024;
+const MAX_BYTES = 4 * 1024 * 1024;
 const ALLOWED_FOLDERS = new Set([
   "portfoliooo",
   "portfoliooo/projects",
@@ -21,6 +21,7 @@ const ALLOWED_FOLDERS = new Set([
 function parseForm(req) {
   return new Promise((resolve, reject) => {
     const form = formidable({
+      uploadDir: process.env.VERCEL ? "/tmp" : undefined,
       maxFileSize: MAX_BYTES,
       filter: ({ mimetype }) => Boolean(mimetype?.startsWith("image/")),
     });
@@ -66,7 +67,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error("Cloudinary upload error:", error);
     const message = error.message?.includes("maxFileSize")
-      ? "Image must be 8 MB or smaller"
+      ? "Image must be 4 MB or smaller"
       : "Upload failed";
     return res.status(500).json({ error: message });
   }

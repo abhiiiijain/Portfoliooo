@@ -1,9 +1,10 @@
 const { execSync, spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const { loadEnv } = require("./loadEnv");
 
 const root = path.join(__dirname, "..");
-const ports = [3000, 3002, 3003];
+const env = { ...process.env, ...loadEnv(path.join(root, ".env")) };
 
 function killPort(port) {
   if (process.platform !== "win32") return;
@@ -31,7 +32,7 @@ function killPort(port) {
   }
 }
 
-for (const port of ports) killPort(port);
+if (env.PORT) killPort(Number(env.PORT));
 
 const nextDir = path.join(root, ".next");
 if (fs.existsSync(nextDir)) {
@@ -39,10 +40,11 @@ if (fs.existsSync(nextDir)) {
   console.log("Removed .next cache");
 }
 
-console.log("Starting dev server on port 3000…\n");
+console.log(`Starting dev server${env.PORT ? ` on port ${env.PORT}` : ""}…\n`);
 
 spawn("npx", ["next", "dev"], {
   stdio: "inherit",
   shell: true,
   cwd: root,
+  env,
 });

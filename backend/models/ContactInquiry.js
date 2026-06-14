@@ -4,6 +4,7 @@ const ContactInquirySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
+    phone: { type: String, required: true },
     subject: String,
     message: { type: String, required: true },
     source: { type: String, default: "portfolio" },

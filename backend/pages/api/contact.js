@@ -1,6 +1,7 @@
 import dbConnect from "../../lib/mongodb";
 import ContactInquiry from "../../models/ContactInquiry";
 import { setCorsHeaders } from "../../lib/cors";
+import { isValidFormattedPhone } from "@portfoliooo/shared/phone";
 
 export default async function handler(req, res) {
   if (setCorsHeaders(req, res)) return;
@@ -9,10 +10,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, subject, message } = req.body || {};
+  const { name, email, phone, subject, message } = req.body || {};
 
-  if (!name?.trim() || !email?.trim() || !message?.trim()) {
-    return res.status(400).json({ error: "Name, email, and message are required" });
+  if (!name?.trim() || !email?.trim() || !phone?.trim() || !message?.trim()) {
+    return res.status(400).json({ error: "Name, email, phone, and message are required" });
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,11 +21,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid email address" });
   }
 
+  const normalizedPhone = phone.trim();
+  if (!isValidFormattedPhone(normalizedPhone)) {
+    return res.status(400).json({ error: "Invalid phone number" });
+  }
+
   try {
     await dbConnect();
     const inquiry = await ContactInquiry.create({
       name: name.trim(),
       email: email.trim(),
+      phone: normalizedPhone,
       subject: subject?.trim() || "Portfolio contact",
       message: message.trim(),
       source: "portfolio",

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "functions": {
+    "pages/api/admin/upload.js": {
+      "maxDuration": 30,
+      "memory": 1024
+    },
+    "pages/api/github/profile.js": {
+      "maxDuration": 30
+    }
+  }
+}

@@ -67,6 +67,31 @@ export const pageFieldGroups = {
     { path: "pages.home.heroText", label: "Hero headline" },
     { path: "pages.home.intro", label: "Intro paragraph", type: "textarea" },
     { path: "pages.home.profileImage", label: "Profile image", type: "image", folder: "portfoliooo/profiles" },
+    { path: "pages.home.aboutTitle", label: "About section title", placeholder: "About Me" },
+    {
+      path: "pages.home.aboutIntro",
+      label: "About section intro",
+      type: "textarea",
+      hint: "Short bio on the homepage About Me card. Falls back to the first About page biography paragraph if empty.",
+    },
+    {
+      path: "pages.home.featuredProjectsTitle",
+      label: "Featured projects heading",
+      placeholder: "Featured Projects",
+    },
+    {
+      path: "pages.home.showGitHubActivity",
+      label: "Show GitHub Activity section",
+      type: "checkbox",
+      defaultTrue: true,
+      hint: "Display GitHub stats and top repositories on the homepage. Requires a GitHub username in Site settings.",
+    },
+    {
+      path: "pages.home.githubSectionTitle",
+      label: "GitHub section heading",
+      placeholder: "GitHub Activity",
+      hint: "Uses the GitHub username from Site settings. Shows activity stats and top repositories.",
+    },
   ],
   about: [
     { path: "pages.about.title", label: "Page title (SEO)" },
@@ -129,7 +154,7 @@ export const pageFieldGroups = {
       path: "footer.showGithubInQuickLinks",
       label: "Include GitHub in quick links",
       type: "checkbox",
-      hint: "Adds a GitHub link using the username from General settings.",
+      hint: "Used only when no custom quick links are saved. Add GitHub manually in Quick links below instead.",
     },
   ],
 };

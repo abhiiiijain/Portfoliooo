@@ -1,13 +1,8 @@
 import { normalizeFonts } from "@/lib/fonts";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { resolveApiUrl } from "@/lib/apiBaseUrl";
 
 export async function fetchPortfolioContent() {
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not configured");
-  }
-
-  const response = await fetch(`${API_URL}/api/content`);
+  const response = await fetch(resolveApiUrl("/api/content"));
 
   if (!response.ok) {
     throw new Error(`Failed to fetch content (${response.status})`);
