@@ -1,25 +1,7 @@
-export const DEFAULT_NAV = [
-  { href: "/", title: "Home" },
-  { href: "/about", title: "About" },
-  { href: "/projects", title: "Projects" },
-  { href: "/certifications", title: "Certifications" },
-  { href: "/contact", title: "Contact Us" },
-];
-
-export const COPYRIGHT_START_YEAR = 2023;
-
-export const DEFAULT_FOOTER = {
-  tagline: "",
-  description: "",
-  quickLinksTitle: "Quick Links",
-  projectsTitle: "My Projects",
-  showGithubInQuickLinks: true,
-  maxProjects: 6,
-};
-
 export function normalizeNav(nav) {
-  const source = nav?.length ? nav : DEFAULT_NAV;
-  const items = source
+  if (!nav?.length) return [];
+
+  const items = nav
     .map((item) => ({
       href: typeof item?.href === "string" ? item.href.trim() : "",
       title: typeof item?.title === "string" ? item.title.trim() : "",
@@ -27,10 +9,13 @@ export function normalizeNav(nav) {
     .filter((item) => item.href.startsWith("/"))
     .map((item) => ({
       href: item.href,
-      title: item.title || item.href,
+      title:
+        item.href === "/contact" && item.title === "Contact Us"
+          ? "Contact"
+          : item.title || item.href,
     }));
 
-  return items.length ? items : DEFAULT_NAV;
+  return items;
 }
 
 export function normalizeFooterQuickLinks(links) {
@@ -42,9 +27,20 @@ export function normalizeFooterQuickLinks(links) {
       href: (link?.href || "").trim(),
       external: Boolean(link?.external),
     }))
+    .map((link) => ({
+      ...link,
+      label:
+        link.href === "/contact" && link.label === "Contact Us" ? "Contact" : link.label,
+    }))
     .filter((link) => link.label && link.href);
 }
 
+export function getFooterQuickLinks(footer) {
+  if (!Array.isArray(footer?.quickLinks)) return [];
+  return normalizeFooterQuickLinks(footer.quickLinks);
+}
+
+/** Admin only — build a draft quick-link list from navigation (not used on the public site). */
 export function getDefaultFooterQuickLinks(nav, social, footer) {
   const fromNav = normalizeNav(nav).map((item) => ({
     label: item.title,
@@ -59,24 +55,16 @@ export function getDefaultFooterQuickLinks(nav, social, footer) {
   return fromNav;
 }
 
-export function getFooterQuickLinks(footer, nav, social) {
-  if (Array.isArray(footer?.quickLinks)) {
-    return normalizeFooterQuickLinks(footer.quickLinks);
-  }
-
-  return getDefaultFooterQuickLinks(nav, social, footer);
-}
-
 export function normalizeFooter(footer) {
   const maxProjects = Number.parseInt(footer?.maxProjects, 10);
 
   const normalized = {
     tagline: footer?.tagline ?? footer?.headline ?? "",
     description: footer?.description ?? "",
-    quickLinksTitle: footer?.quickLinksTitle || DEFAULT_FOOTER.quickLinksTitle,
-    projectsTitle: footer?.projectsTitle || DEFAULT_FOOTER.projectsTitle,
+    quickLinksTitle: footer?.quickLinksTitle ?? "",
+    projectsTitle: footer?.projectsTitle ?? "",
     showGithubInQuickLinks: footer?.showGithubInQuickLinks !== false,
-    maxProjects: Number.isFinite(maxProjects) && maxProjects > 0 ? maxProjects : DEFAULT_FOOTER.maxProjects,
+    maxProjects: Number.isFinite(maxProjects) && maxProjects > 0 ? maxProjects : 0,
   };
 
   if (Array.isArray(footer?.quickLinks)) {

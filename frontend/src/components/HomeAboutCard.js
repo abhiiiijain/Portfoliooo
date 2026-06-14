@@ -12,14 +12,14 @@ export default function HomeAboutCard() {
   const about = site.pages.about || {};
 
   const intro = home.aboutIntro?.trim() || about.biography?.[0]?.trim();
-  if (!intro) return null;
+  const title = home.aboutTitle?.trim();
+  if (!intro || !title) return null;
 
-  const title = home.aboutTitle?.trim() || "About Me";
   const name = site.name || site.brand;
-  const role = about.role || site.brand || "Developer";
+  const role = about.role?.trim();
   const profileImage = home.profileImage || about.profileImage;
   const location = about.location?.trim();
-  const availability = about.availability?.trim() || "Available for projects";
+  const availability = about.availability?.trim();
   const topSkills = getTopSkills(skills, 4);
 
   return (
@@ -34,7 +34,9 @@ export default function HomeAboutCard() {
             ) : null}
             <div className="min-w-0">
               <p className="text-base font-bold leading-tight text-dark dark:text-light">{name}</p>
-              <p className="text-xs text-dark/60 dark:text-light/60">{role}</p>
+              {role ? (
+                <p className="text-xs text-dark/60 dark:text-light/60">{role}</p>
+              ) : null}
             </div>
           </div>
 

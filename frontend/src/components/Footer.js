@@ -2,7 +2,9 @@ import React from "react";
 import Layout from "./Layout";
 import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
-import { COPYRIGHT_START_YEAR, getFooterQuickLinks } from "@portfoliooo/shared/site";
+import { getFooterQuickLinks } from "@portfoliooo/shared/site";
+
+const COPYRIGHT_START_YEAR = 2023;
 
 function FooterLinkList({ links }) {
   const validLinks = links.filter((link) => link?.href);
@@ -43,18 +45,19 @@ const Footer = () => {
   const { content } = usePortfolio();
   if (!content?.site) return null;
 
-  const { name, brand, nav, social, footer } = content.site;
+  const { name, brand, footer } = content.site;
   const year = new Date().getFullYear();
 
-  const quickLinks = getFooterQuickLinks(footer, nav, social);
+  const quickLinks = getFooterQuickLinks(footer);
 
-  const projectLinks = (content.projects || [])
-    .slice(0, footer.maxProjects)
-    .map((project) => ({
-      label: project.title,
-      href: project.link || project.github || "/projects",
-      external: Boolean(project.link || project.github),
-    }));
+  const projectLinks =
+    footer.maxProjects > 0
+      ? (content.projects || []).slice(0, footer.maxProjects).map((project) => ({
+          label: project.title,
+          href: project.link || project.github || "/projects",
+          external: Boolean(project.link || project.github),
+        }))
+      : [];
 
   return (
     <>
@@ -78,16 +81,20 @@ const Footer = () => {
             </div>
 
             <div className="text-center">
-              <h3 className="text-sm font-semibold text-dark dark:text-light">
-                {footer.quickLinksTitle}
-              </h3>
+              {footer.quickLinksTitle ? (
+                <h3 className="text-sm font-semibold text-dark dark:text-light">
+                  {footer.quickLinksTitle}
+                </h3>
+              ) : null}
               <FooterLinkList links={quickLinks} />
             </div>
 
             <div className="text-center">
-              <h3 className="text-sm font-semibold text-dark dark:text-light">
-                {footer.projectsTitle}
-              </h3>
+              {footer.projectsTitle ? (
+                <h3 className="text-sm font-semibold text-dark dark:text-light">
+                  {footer.projectsTitle}
+                </h3>
+              ) : null}
               <FooterLinkList links={projectLinks} />
             </div>
           </div>

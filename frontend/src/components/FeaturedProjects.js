@@ -98,7 +98,8 @@ export default function FeaturedProjects() {
 
   if (!featured.length) return null;
 
-  const title = home.featuredProjectsTitle?.trim() || "Featured Projects";
+  const title = home.featuredProjectsTitle?.trim();
+  if (!title) return null;
 
   return (
     <HomeSection>

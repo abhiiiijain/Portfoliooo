@@ -26,7 +26,7 @@ export function normalizeSkills(raw) {
   if (!raw?.categories?.length) return null;
 
   return {
-    title: raw.title || DEFAULT_SKILLS_TITLE,
+    title: raw.title ?? "",
     categories: buildFixedCategories(raw.categories),
   };
 }

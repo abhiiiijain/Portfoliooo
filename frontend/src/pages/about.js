@@ -28,8 +28,9 @@ const About = () => {
     setExperienceLabel(duration ? formatExperienceDuration(duration) : "");
   }, [site.experienceStartDate]);
 
-  const role = page.role || site.brand || "Developer";
-  const availability = page.availability || "Available for projects";
+  const role = page.role?.trim();
+  const availability = page.availability?.trim();
+  const biographyTitle = page.biographyTitle?.trim();
 
   return (
     <>
@@ -49,7 +50,7 @@ const About = () => {
           <div className="relative grid grid-cols-3 items-stretch gap-6 lg:grid-cols-1 lg:gap-6">
             <ContentPanel
               icon={<UserIcon className="h-4 w-4 shrink-0" />}
-              title={page.biographyTitle || "My Journey"}
+              title={biographyTitle}
               className="col-span-2 flex flex-col lg:col-span-1">
               <div className="flex-1 space-y-4">
                 {(page.biography || []).map((paragraph, index) => (
@@ -95,7 +96,9 @@ const About = () => {
               </div>
 
               <h2 className="text-lg font-bold text-dark dark:text-light">{site.name || site.brand}</h2>
-              <p className="mt-1 text-sm text-dark/60 dark:text-light/60">{role}</p>
+              {role ? (
+                <p className="mt-1 text-sm text-dark/60 dark:text-light/60">{role}</p>
+              ) : null}
 
               {experienceLabel ? (
                 <p className="mt-4 inline-flex items-center gap-2 text-xs text-dark/70 dark:text-light/70">

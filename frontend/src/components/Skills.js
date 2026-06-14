@@ -27,6 +27,7 @@ const Skills = () => {
   }
 
   const { title, categories } = content.skills;
+  if (!title?.trim()) return null;
 
   return (
     <ContentPanel icon={<SparklesIcon className="h-4 w-4 shrink-0" />} title={title} className="mt-12 lg:mt-10">

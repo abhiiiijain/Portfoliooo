@@ -52,11 +52,11 @@ export default function GitHubProfile() {
   const githubUrl = content.site.social?.github;
   const [profile, setProfile] = useState(null);
 
-  const title = home.githubSectionTitle?.trim() || "GitHub Activity";
+  const title = home.githubSectionTitle?.trim();
   const showSection = home.showGitHubActivity !== false;
 
   useEffect(() => {
-    if (!githubUrl || !showSection) return;
+    if (!githubUrl || !showSection || !title) return;
 
     let active = true;
 
@@ -70,9 +70,9 @@ export default function GitHubProfile() {
     return () => {
       active = false;
     };
-  }, [githubUrl, showSection]);
+  }, [githubUrl, showSection, title]);
 
-  if (!showSection || !githubUrl || !profile) return null;
+  if (!showSection || !githubUrl || !profile || !title) return null;
 
   const { stats, repos } = profile;
   const profileUrl = profile.url || githubUrl;

@@ -6,7 +6,6 @@ import { GithubIcon, LinkedInIcon, SunIcon, MoonIcon } from "./Icons";
 import { motion } from "framer-motion";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { usePortfolio } from "@/context/PortfolioContext";
-import { DEFAULT_NAV } from "@portfoliooo/shared/site";
 
 const CustomLink = ({ href, title, className = "" }) => {
   if (!href) return null;
@@ -74,7 +73,7 @@ const NavBar = () => {
   const router = useRouter();
   const { mode, toggleMode, ready } = useThemeSwitcher();
   const { content } = usePortfolio();
-  const nav = content?.site?.nav ?? DEFAULT_NAV;
+  const nav = content?.site?.nav ?? [];
   const social = content?.site?.social;
 
   const [isOpen, setIsOpen] = useState(false);

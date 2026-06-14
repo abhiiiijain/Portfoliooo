@@ -7,7 +7,8 @@ const MotionLink = motion(Link);
 
 const Logo = () => {
   const { content } = usePortfolio();
-  const initials = content?.site?.logoInitials || "AJ";
+  const initials = content?.site?.logoInitials?.trim() || content?.site?.brand?.trim()?.slice(0, 2) || "";
+  if (!initials) return null;
 
   return (
     <div className="flex items-center justify-center">

@@ -105,7 +105,7 @@ export default function PageSettingsPanel({ sectionId }) {
     if (sectionId === "footer") {
       const links = Array.isArray(site.footer?.quickLinks)
         ? normalizeFooterQuickLinks(site.footer.quickLinks)
-        : getFooterQuickLinks(site.footer, site.nav, site.social);
+        : getFooterQuickLinks(site.footer);
       setQuickLinks(links.map((link) => ({ ...link })));
     }
   }, [site, sectionId]);

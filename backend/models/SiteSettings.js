@@ -22,10 +22,10 @@ const SiteSettingsSchema = new mongoose.Schema(
     footer: {
       tagline: String,
       description: String,
-      quickLinksTitle: { type: String, default: "Quick Links" },
-      projectsTitle: { type: String, default: "My Projects" },
+      quickLinksTitle: String,
+      projectsTitle: String,
       showGithubInQuickLinks: { type: Boolean, default: true },
-      maxProjects: { type: Number, default: 6 },
+      maxProjects: Number,
       quickLinks: [
         {
           label: String,
